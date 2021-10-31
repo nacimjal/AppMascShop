@@ -91,10 +91,11 @@
         app:layout_constraintTop_toBottomOf="@+id/lblContrasenia" />
 
     <Button
-        android:id="@+id/btnEntregarPedido"
-        android:layout_width="wrap_content"
+        android:id="@+id/btnIniciarSesion"
+        android:layout_width="match_parent"
         android:layout_height="60dp"
         android:layout_marginTop="40dp"
+        android:layout_marginHorizontal="20dp"
         android:backgroundTint="@color/color_principal"
         android:paddingHorizontal="30dp"
         android:text="Iniciar Sesión"
@@ -104,6 +105,22 @@
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/txtContrasenia" />
+
+    <Button
+        android:id="@+id/btnCrearCuenta"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:layout_marginTop="40dp"
+        android:layout_marginHorizontal="20dp"
+        android:backgroundTint="@color/colPlomo"
+        android:paddingHorizontal="30dp"
+        android:text="Crea tu cuenta"
+        android:textAllCaps="false"
+        android:textColor="@color/white"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btnIniciarSesion" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
