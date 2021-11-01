@@ -10,4 +10,7 @@
     <color name="color_principal">#5EC1A4</color>
     <color name="color_secundario">#3AA082</color>
     <color name="colPlomo">#8492A6</color>
+
+    <color name="colCard">#C0CCDA</color>
+
 </resources>
