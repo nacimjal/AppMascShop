@@ -8,6 +8,8 @@
 
     <dimen name="_sizeText">15dp</dimen>
     <dimen name="_sizeTextProductos">20dp</dimen>
+    <dimen name="_sizeTextProdCarrito">16dp</dimen>
+    <dimen name="_sizeTextDetPed">16dp</dimen>
     <dimen name="_sizeTextButton">15dp</dimen>
 
 

@@ -1,0 +1,373 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    android:paddingHorizontal="15dp"
+    android:paddingTop="5dp"
+    tools:context=".ui.gallery.DetallePedido">
+
+
+    <ImageView
+        android:id="@+id/iconPedido"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:src="@drawable/icon_pedido"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/labelTitulo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="20dp"
+        android:text="Detalle del pedido N°: "
+        android:textColor="@color/colPlomo"
+        android:textSize="@dimen/_sizeText"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="@+id/iconPedido"
+        app:layout_constraintStart_toEndOf="@+id/iconPedido"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/txtNumPedidoEvidencias"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="5dp"
+        android:layout_marginTop="20dp"
+        android:text="P001000254"
+        android:textColor="@color/colPlomo"
+        android:textSize="@dimen/_sizeTextDetPed"
+        app:layout_constraintBottom_toBottomOf="@+id/labelTitulo"
+        app:layout_constraintStart_toEndOf="@+id/labelTitulo"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <LinearLayout
+        android:id="@+id/linearLayoutCabecera"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:orientation="vertical"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/iconPedido">
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:cardCornerRadius="6dp"
+            app:cardUseCompatPadding="true">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="5dp">
+
+                <!-- =========  Fila 1 ==========-->
+                <TextView
+                    android:id="@+id/lblNumPedido"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Cliente:"
+                    android:textColor="@color/colPlomo"
+                    android:textSize="@dimen/_sizeTextDetPed"
+                    android:textStyle="bold"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/lblFechaPedido"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Fecha Emisión:"
+                    android:textColor="@color/colPlomo"
+                    android:textSize="@dimen/_sizeTextDetPed"
+                    android:textStyle="bold"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/txtCliente"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="3dp"
+                    android:text="74510125 - Juan Perez Lopez"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/_sizeTextDetPed"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/lblNumPedido" />
+
+                <TextView
+                    android:id="@+id/txtFechaEntrega"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="3dp"
+                    android:text="04/06/2021"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/_sizeTextDetPed"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/lblFechaPedido" />
+
+                <!-- =========  Fila 2 ==========-->
+                <TextView
+                    android:id="@+id/lblTelefono"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="3dp"
+                    android:text="Teléfono:"
+                    android:textColor="@color/colPlomo"
+                    android:textSize="@dimen/_sizeTextDetPed"
+                    android:textStyle="bold"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/txtCliente" />
+
+                <TextView
+                    android:id="@+id/txtTelefono"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="3dp"
+                    android:text="936182545"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/_sizeTextDetPed"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/lblTelefono" />
+
+                <TextView
+                    android:id="@+id/lblEmail"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="25dp"
+                    android:layout_marginTop="3dp"
+                    android:text="Email:"
+                    android:textColor="@color/colPlomo"
+                    android:textSize="@dimen/_sizeTextDetPed"
+                    android:textStyle="bold"
+                    app:layout_constraintStart_toEndOf="@+id/lblTelefono"
+                    app:layout_constraintTop_toBottomOf="@+id/txtCliente" />
+
+                <TextView
+                    android:id="@+id/txtEmail"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="25dp"
+                    android:text="emercado@hotmail.com"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/_sizeTextDetPed"
+                    app:layout_constraintStart_toEndOf="@+id/lblTelefono"
+                    app:layout_constraintTop_toBottomOf="@+id/lblEmail" />
+
+
+                <!-- =========  Fila 3 ==========-->
+                <TextView
+                    android:id="@+id/lblDireccion"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="3dp"
+                    android:text="Dirección:"
+                    android:textColor="@color/colPlomo"
+                    android:textSize="@dimen/_sizeTextDetPed"
+                    android:textStyle="bold"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/txtTelefono" />
+
+                <TextView
+                    android:id="@+id/txtDireccion"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="3dp"
+                    android:text="Calle los zorzales 130 int 507, San Isidro"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/_sizeTextDetPed"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/lblDireccion" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </androidx.cardview.widget.CardView>
+    </LinearLayout>
+
+    <!-- Lista productos pedido-->
+    <LinearLayout
+        android:id="@+id/linearLayoutEvidencias"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:orientation="vertical"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayoutCabecera">
+
+        <TextView
+            android:id="@+id/labelProductos"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Productos"
+            android:textColor="@color/colPlomo"
+            android:textSize="@dimen/_sizeText"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toEndOf="parent" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/listaMotorizados"
+            android:layout_width="match_parent"
+            android:layout_height="180dp"
+            android:layout_marginTop="5dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/labelProductos"
+            tools:listitem="@layout/cardlist_producto_pedido" />
+    </LinearLayout>
+
+    <!-- Detalle subtotal pedido-->
+    <LinearLayout
+        android:id="@+id/linearLayoutSubtotal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:orientation="vertical"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayoutEvidencias">
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:cardCornerRadius="6dp"
+            app:cardUseCompatPadding="true">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="5dp">
+
+                <!--Fila Subtotal-->
+                <TextView
+                    android:id="@+id/labelSubtotal"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Subtotal"
+                    android:textColor="@color/colPlomo"
+                    android:textSize="@dimen/_sizeText"
+                    android:textStyle="bold"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/txtSubtotal"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="S/ 404.84"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/_sizeTextDetPed"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <!--Fila IGV-->
+                <TextView
+                    android:id="@+id/labelIgv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
+                    android:text="IGV 18%"
+                    android:textColor="@color/colPlomo"
+                    android:textSize="@dimen/_sizeText"
+                    android:textStyle="bold"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/labelSubtotal" />
+
+                <TextView
+                    android:id="@+id/txtIgv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
+                    android:text="S/ 72.87"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/_sizeTextDetPed"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/txtSubtotal" />
+
+                <!--Fila Total-->
+                <TextView
+                    android:id="@+id/labelTotal"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
+                    android:text="Total a pagar"
+                    android:textColor="@color/colPlomo"
+                    android:textSize="@dimen/_sizeText"
+                    android:textStyle="bold"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/labelIgv" />
+
+                <TextView
+                    android:id="@+id/txtTotal"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
+                    android:text="S/ 477.71"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/_sizeTextDetPed"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/txtIgv" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </androidx.cardview.widget.CardView>
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/linearLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:orientation="vertical"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayoutSubtotal"
+        tools:layout_editor_absoluteX="15dp">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:id="@+id/labelEvidenciaPago"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Evidencia del pago"
+                android:textColor="@color/colPlomo"
+                android:textSize="@dimen/_sizeText"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <ImageView
+                android:id="@+id/imgEvidenciaPago"
+                android:layout_width="80dp"
+                android:layout_height="80dp"
+                android:layout_marginTop="5dp"
+                android:src="@drawable/icon_pago"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/labelEvidenciaPago" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/btnVerUbicacion"
+        android:layout_width="250dp"
+        android:layout_height="60dp"
+        android:layout_marginTop="10dp"
+        android:backgroundTint="@color/color_principal"
+        android:paddingHorizontal="30dp"
+        android:text="Ver Ubicación del cliente"
+        android:textAllCaps="false"
+        android:textColor="@color/white"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout" />
+
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

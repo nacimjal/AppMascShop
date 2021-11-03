@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:cardCornerRadius="6dp"
+        app:cardUseCompatPadding="true">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="5dp">
+
+
+            <ImageView
+                android:id="@+id/imageView2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:srcCompat="@drawable/icon_pedido"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"/>
+
+            <TextView
+                android:id="@+id/lblNumPedido"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:text="P001000255"
+                android:textColor="@color/colPlomo"
+                android:textSize="@dimen/_sizeText"
+                app:layout_constraintStart_toEndOf="@+id/imageView2"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/lblFechaPedido"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="04/06/2021"
+                android:textSize="@dimen/_sizeText"
+                android:textColor="@color/colPlomo"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/lblDniCliente"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="10dp"
+                android:text="74539106"
+                android:textStyle="bold"
+                android:textColor="@color/black"
+                android:textSize="@dimen/_sizeText"
+                app:layout_constraintStart_toEndOf="@+id/imageView2"
+                app:layout_constraintTop_toBottomOf="@+id/lblNumPedido" />
+
+            <TextView
+                android:id="@+id/lblCliente"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="10dp"
+                android:text="Efrain Mercado Chavez"
+                android:textColor="@color/black"
+                android:textSize="@dimen/_sizeText"
+                android:textStyle="bold"
+                app:layout_constraintStart_toEndOf="@+id/lblDniCliente"
+                app:layout_constraintTop_toBottomOf="@+id/lblNumPedido" />
+
+            <TextView
+                android:id="@+id/lblSubtotal"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="10dp"
+                android:text="Sub: S/ 404.84"
+                android:textSize="@dimen/_sizeText"
+                android:textStyle="bold"
+                android:textColor="@color/colPlomo"
+                app:layout_constraintStart_toEndOf="@+id/imageView2"
+                app:layout_constraintTop_toBottomOf="@+id/lblDniCliente" />
+
+            <TextView
+                android:id="@+id/lblIgv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="10dp"
+                android:text="Igv: S/ 72.87"
+                android:textColor="@color/colPlomo"
+                android:textSize="@dimen/_sizeText"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toStartOf="@+id/lblTotal"
+                app:layout_constraintStart_toEndOf="@+id/lblSubtotal"
+                app:layout_constraintTop_toBottomOf="@+id/lblCliente" />
+
+            <TextView
+                android:id="@+id/lblTotal"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:text="Tot: S/ 72.87"
+                android:textColor="@color/colPlomo"
+                android:textSize="@dimen/_sizeText"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/lblCliente"/>
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.cardview.widget.CardView>
+
+</LinearLayout>
