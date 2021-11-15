@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="spinerListaCategoria">
+        <item>@string/spinnerTipo1</item>
+        <item>@string/spinnerTipo2</item>
+        <item>@string/spinnerTipo3</item>
+        <item>@string/spinnerTipo4</item>
+
+    </string-array>
+</resources>

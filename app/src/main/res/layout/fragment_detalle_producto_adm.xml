@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    android:paddingHorizontal="15dp"
+    android:paddingTop="5dp"
+    tools:context=".ui.admin.DetalleProductoAdm">
+
+    <TextView
+        android:id="@+id/textView6"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:text="Datos del producto"
+        android:textSize="20dp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView6">
+
+
+        <TextView
+            android:id="@+id/lblCodProducto"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="50dp"
+            android:text="Código:"
+            android:textColor="@color/colPlomo"
+            android:textSize="16dp"
+            android:textStyle="bold" />
+        <EditText
+            android:id="@+id/textCodigoProducto"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:hint="PRD000001"
+            android:inputType="textPersonName"
+            android:minHeight="48dp"
+            android:textColorHint="@color/colPlomo"/>
+
+        <TextView
+            android:id="@+id/lblNombProducto"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:text="Nombre:"
+            android:textColor="@color/colPlomo"
+            android:textSize="16dp"
+            android:textStyle="bold" />
+        <EditText
+            android:id="@+id/textNombreProducto"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:hint="Producto 1"
+            android:inputType="textPersonName"
+            android:minHeight="48dp"
+            android:textColorHint="@color/colPlomo"/>
+
+        <TextView
+            android:id="@+id/lblDescProducto"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:text="Descripción:"
+            android:textColor="@color/colPlomo"
+            android:textSize="16dp"
+            android:textStyle="bold" />
+        <EditText
+            android:id="@+id/textDescProducto"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:hint="Descripción del producto"
+            android:inputType="textMultiLine"
+            android:lines="3"
+            android:minHeight="48dp"
+            android:textColorHint="@color/colPlomo"/>
+
+        <TextView
+            android:id="@+id/lblPrecProducto"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:text="Precio:"
+            android:textColor="@color/colPlomo"
+            android:textSize="16dp"
+            android:textStyle="bold" />
+        <EditText
+            android:id="@+id/textPrecProducto"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:hint="100.00"
+            android:inputType="numberDecimal"
+            android:minHeight="48dp"
+            android:textColorHint="@color/colPlomo"/>
+
+        <TextView
+            android:id="@+id/lblCategoriaProducto"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:text="Categoría:"
+            android:textColor="@color/colPlomo"
+            android:textSize="16dp"
+            android:textStyle="bold" />
+
+        <Spinner
+            android:id="@+id/SpinnerFeedbackType"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:entries="@array/spinerListaCategoria"
+            android:minHeight="48dp"
+            android:prompt="@string/spinnerTipo1"></Spinner>
+
+        <Button
+            android:id="@+id/btnRegistrarCategoria"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:layout_marginTop="40dp"
+            android:backgroundTint="@color/color_principal"
+            android:paddingHorizontal="30dp"
+            android:text="Guardar datos"
+            android:textAllCaps="false"
+            android:textColor="@color/white"
+            app:layout_constraintHorizontal_bias="0.498" />
+
+    </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

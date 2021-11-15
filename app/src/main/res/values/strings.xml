@@ -16,4 +16,10 @@
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+
+    <!-- TODO: Spiner categoria temporal -->
+    <string name="spinnerTipo1">Categoria 1</string>
+    <string name="spinnerTipo2">Categoria 2</string>
+    <string name="spinnerTipo3">Categoria 3</string>
+    <string name="spinnerTipo4">Categoria 4</string>
 </resources>

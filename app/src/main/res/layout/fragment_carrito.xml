@@ -30,7 +30,7 @@
         app:layout_constraintStart_toEndOf="@+id/imageView6"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <!--TODO: al dar click en el card del producto se mostrará una elrrta donde se ingresará la cantidad -->
+    <!--TODO: al dar click en el card del producto se mostrará una elerta donde se ingresará la cantidad -->
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/listaProductosCarrito"
         android:layout_width="match_parent"
