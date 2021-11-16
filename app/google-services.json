@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "1020551165875",
+    "project_id": "appmascshop",
+    "storage_bucket": "appmascshop.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1020551165875:android:9e08f0e6f43d9540f93dc6",
+        "android_client_info": {
+          "package_name": "com.pjapp.appmascshop"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1020551165875-1arhid96f7vfibuqdh0fqokt4d5stum2.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCzXSWuuIAZ03caG1GvjVrVLPFYvsrDG2w"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1020551165875-1arhid96f7vfibuqdh0fqokt4d5stum2.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
