@@ -1,23 +1,36 @@
 package com.pjapp.appmascshop.ui.admin;
 
+import android.content.DialogInterface;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.appcompat.app.AlertDialog;
 import androidx.fragment.app.Fragment;
 
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.Toast;
 
 import com.google.firebase.FirebaseApp;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
+import com.pjapp.appmascshop.MainActivity;
+import com.pjapp.appmascshop.Model.Productos;
 import com.pjapp.appmascshop.R;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.UUID;
 
 public class DetalleProductoAdm extends Fragment {
 
@@ -25,10 +38,12 @@ public class DetalleProductoAdm extends Fragment {
     Spinner spinnerCategorias;
     Button btnRegistrarProducto;
 
-    String codigoProducto,nombreProducto,descProducto,precProducto,idCategoria;
+    String codigoProducto,nombreProducto,descProducto,precProducto,categoria;
 
     FirebaseDatabase firebaseDatabase;
     DatabaseReference databaseReference;
+
+    final List<String> listCategSpinner = new ArrayList<>();
 
     Boolean registra = true;
 
@@ -41,11 +56,37 @@ public class DetalleProductoAdm extends Fragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         asignarReferencias(view);
         inicializarFirebase();
+        cargarSpinnerCategoria();
         //verificarRegistraActualiza();
     }
 
+    private void cargarSpinnerCategoria(){
+        databaseReference.child("Categorias").addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                listCategSpinner.clear();
+                for(DataSnapshot item: snapshot.getChildren()){
+                    String nombCategoria = item.child("nombreCategoria").getValue(String.class);
+                    if (nombCategoria!=null){
+                        listCategSpinner.add(nombCategoria);
+                    }
+                }
+
+                ArrayAdapter<String> categoriaAdapter =
+                        new ArrayAdapter<String>(getContext(), android.R.layout.simple_spinner_item,listCategSpinner);
+                categoriaAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+                spinnerCategorias.setAdapter(categoriaAdapter);
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+                Log.i("Error => ", error.getMessage());
+            }
+        });
+    }
+
     private void asignarReferencias(View view){
-        textCodigoProducto = view.findViewById(R.id.textCodigoProducto);
+        textCodigoProducto = view.findViewById(R.id.txtCodProdCard);
         textNombreProducto = view.findViewById(R.id.textNombreProducto);
         textDescProducto = view.findViewById(R.id.textDescProducto);
         textPrecProducto = view.findViewById(R.id.textPrecProducto);
@@ -68,7 +109,34 @@ public class DetalleProductoAdm extends Fragment {
     }
 
     private void registrarProducto(){
-        Toast.makeText(getContext(), "Registrar producto", Toast.LENGTH_SHORT).show();
+        //Toast.makeText(getContext(), "Registrar producto", Toast.LENGTH_SHORT).show();
+        Productos p = new Productos();
+        p.setIdProducto(UUID.randomUUID().toString());
+        p.setCodigo(codigoProducto);
+        p.setNombre(nombreProducto);
+        p.setDescripcion(descProducto);
+        p.setPrecio(Double.valueOf(precProducto).doubleValue());
+        p.setCategoria(categoria);
+
+        databaseReference.child("Productos").child(p.getIdProducto()).setValue(p);
+        AlertDialog.Builder ventana = new AlertDialog.Builder(getContext());
+        ventana.setTitle("Mensaje informativo");
+        ventana.setMessage("Producto registrado correctamente");
+        ventana.setPositiveButton("Aceptar", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialogInterface, int i) {
+
+                MainActivity activity = (MainActivity) getContext();
+                Fragment newFragment = new Producto();
+                activity.getSupportFragmentManager()
+                        .beginTransaction()
+                        .replace(R.id.nav_host_fragment_content_main,newFragment)
+                        .addToBackStack(null)
+                        .commit();
+            }
+        });
+        ventana.create().show();
+
     }
 
     private void actualizarProducto(){
@@ -82,7 +150,9 @@ public class DetalleProductoAdm extends Fragment {
         nombreProducto = textNombreProducto.getText().toString();
         descProducto = textDescProducto.getText().toString();
         precProducto = textPrecProducto.getText().toString();
-        idCategoria = spinnerCategorias.getTransitionName();
+        categoria = spinnerCategorias.getSelectedItem().toString();
+
+
 
         if (codigoProducto.equals("")){
             textCodigoProducto.setError("Ingrese código del producto");

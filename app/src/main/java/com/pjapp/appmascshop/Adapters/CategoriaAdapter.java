@@ -2,7 +2,6 @@ package com.pjapp.appmascshop.Adapters;
 
 import android.content.Context;
 import android.content.DialogInterface;
-import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -106,8 +105,8 @@ public class CategoriaAdapter extends RecyclerView.Adapter<CategoriaAdapter.MyVi
         public MyViewHolder(@NonNull View itemView) {
             super(itemView);
             textCategoriaProducto = itemView.findViewById(R.id.textCategoriaProducto);
-            btnEditarCategoria = itemView.findViewById(R.id.btnEditarCategoria);
-            btnEliminarCategoria = itemView.findViewById(R.id.btnEliminarCategoria);
+            btnEditarCategoria = itemView.findViewById(R.id.btnEditarProducto);
+            btnEliminarCategoria = itemView.findViewById(R.id.btnEliminarProducto);
         }
     }
 }

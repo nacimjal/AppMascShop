@@ -6,7 +6,7 @@ public class Productos {
     private String nombre;
     private String descripcion;
     private Double precio;
-    private String idCategoria;
+    private String categoria;
 
     public String getIdProducto() {
         return idProducto;
@@ -48,11 +48,11 @@ public class Productos {
         this.precio = precio;
     }
 
-    public String getIdCategoria() {
-        return idCategoria;
+    public String getCategoria() {
+        return categoria;
     }
 
-    public void setIdCategoria(String idCategoria) {
-        this.idCategoria = idCategoria;
+    public void setCategoria(String categoria) {
+        this.categoria = categoria;
     }
 }
