@@ -2,65 +2,115 @@ package com.pjapp.appmascshop.ui.admin;
 
 import android.os.Bundle;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.EditText;
+import android.widget.Spinner;
+import android.widget.Toast;
 
+import com.google.firebase.FirebaseApp;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 import com.pjapp.appmascshop.R;
 
-/**
- * A simple {@link Fragment} subclass.
- * Use the {@link DetalleProductoAdm#newInstance} factory method to
- * create an instance of this fragment.
- */
 public class DetalleProductoAdm extends Fragment {
 
-    // TODO: Rename parameter arguments, choose names that match
-    // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-    private static final String ARG_PARAM1 = "param1";
-    private static final String ARG_PARAM2 = "param2";
+    EditText textCodigoProducto,textNombreProducto,textDescProducto,textPrecProducto;
+    Spinner spinnerCategorias;
+    Button btnRegistrarProducto;
 
-    // TODO: Rename and change types of parameters
-    private String mParam1;
-    private String mParam2;
+    String codigoProducto,nombreProducto,descProducto,precProducto,idCategoria;
 
-    public DetalleProductoAdm() {
-        // Required empty public constructor
-    }
+    FirebaseDatabase firebaseDatabase;
+    DatabaseReference databaseReference;
 
-    /**
-     * Use this factory method to create a new instance of
-     * this fragment using the provided parameters.
-     *
-     * @param param1 Parameter 1.
-     * @param param2 Parameter 2.
-     * @return A new instance of fragment DetalleProductoAdm.
-     */
-    // TODO: Rename and change types and number of parameters
-    public static DetalleProductoAdm newInstance(String param1, String param2) {
-        DetalleProductoAdm fragment = new DetalleProductoAdm();
-        Bundle args = new Bundle();
-        args.putString(ARG_PARAM1, param1);
-        args.putString(ARG_PARAM2, param2);
-        fragment.setArguments(args);
-        return fragment;
-    }
+    Boolean registra = true;
 
     @Override
-    public void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        if (getArguments() != null) {
-            mParam1 = getArguments().getString(ARG_PARAM1);
-            mParam2 = getArguments().getString(ARG_PARAM2);
-        }
-    }
-
-    @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
+    public View onCreateView(LayoutInflater inflater, ViewGroup container,Bundle savedInstanceState) {
         return inflater.inflate(R.layout.fragment_detalle_producto_adm, container, false);
+    }
+
+    @Override
+    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
+        asignarReferencias(view);
+        inicializarFirebase();
+        //verificarRegistraActualiza();
+    }
+
+    private void asignarReferencias(View view){
+        textCodigoProducto = view.findViewById(R.id.textCodigoProducto);
+        textNombreProducto = view.findViewById(R.id.textNombreProducto);
+        textDescProducto = view.findViewById(R.id.textDescProducto);
+        textPrecProducto = view.findViewById(R.id.textPrecProducto);
+        spinnerCategorias = view.findViewById(R.id.spinnerCategorias);
+
+        btnRegistrarProducto = view.findViewById(R.id.btnRegistrarProducto);
+
+        btnRegistrarProducto.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if(validarCampos()){
+                    if (registra){
+                        registrarProducto();
+                    }else{
+                        actualizarProducto();
+                    }
+                }
+            }
+        });
+    }
+
+    private void registrarProducto(){
+        Toast.makeText(getContext(), "Registrar producto", Toast.LENGTH_SHORT).show();
+    }
+
+    private void actualizarProducto(){
+        Toast.makeText(getContext(), "Registrar producto", Toast.LENGTH_SHORT).show();
+    }
+
+    private boolean validarCampos(){
+        boolean resultado = true;
+
+        codigoProducto = textCodigoProducto.getText().toString();
+        nombreProducto = textNombreProducto.getText().toString();
+        descProducto = textDescProducto.getText().toString();
+        precProducto = textPrecProducto.getText().toString();
+        idCategoria = spinnerCategorias.getTransitionName();
+
+        if (codigoProducto.equals("")){
+            textCodigoProducto.setError("Ingrese código del producto");
+            resultado = false;
+        }
+        if (nombreProducto.equals("")){
+            textNombreProducto.setError("Ingrese nombre del producto");
+            resultado = false;
+        }
+        if (descProducto.equals("")){
+            textDescProducto.setError("Ingrese descripción del producto");
+            resultado = false;
+        }
+        if (precProducto.equals("")){
+            textPrecProducto.setError("Ingrese precio para el producto");
+            resultado = false;
+        }
+        /*if (idCategoria.equals("")){
+            Toast.makeText(getContext(), "Seleccione un categoría", Toast.LENGTH_SHORT).show();
+            resultado = false;
+        }*/
+
+        return resultado;
+    }
+
+    private void inicializarFirebase() {
+        FirebaseApp.initializeApp(getContext());
+        firebaseDatabase = FirebaseDatabase.getInstance();
+        databaseReference = firebaseDatabase.getReference();
     }
 }

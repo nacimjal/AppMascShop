@@ -1,7 +1,6 @@
 package com.pjapp.appmascshop.ui.admin;
 
 import android.content.DialogInterface;
-import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -19,8 +18,6 @@ import android.widget.Toast;
 import com.google.firebase.FirebaseApp;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
-import com.pjapp.appmascshop.AccountActivity;
-import com.pjapp.appmascshop.LoginActivity;
 import com.pjapp.appmascshop.MainActivity;
 import com.pjapp.appmascshop.Model.Categoria;
 import com.pjapp.appmascshop.R;
@@ -70,7 +67,7 @@ public class DetalleCategoriaProducto extends Fragment {
 
     private void asignarReferencias(View view){
         txtNombreCategoria = view.findViewById(R.id.txtNombreCategoria);
-        btnRegistrarCategoria = view.findViewById(R.id.btnRegistrarCategoria);
+        btnRegistrarCategoria = view.findViewById(R.id.btnRegistrarProducto);
 
         btnRegistrarCategoria.setOnClickListener(new View.OnClickListener() {
             @Override

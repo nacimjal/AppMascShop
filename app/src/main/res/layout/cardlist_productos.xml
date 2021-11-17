@@ -4,9 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:orientation="vertical"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
-
-
+    android:layout_height="wrap_content">
 
     <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
@@ -21,7 +19,7 @@
             android:padding="15dp">
 
             <TextView
-                android:id="@+id/textView4"
+                android:id="@+id/txtNombCategoriaUser"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Alimentación"

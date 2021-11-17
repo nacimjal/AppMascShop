@@ -10,24 +10,36 @@
     tools:context=".ui.admin.Producto">
 
     <TextView
-        android:id="@+id/lblProductos"
+        android:id="@+id/txtProductoAdm"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
         android:text="Productos"
         android:textSize="20dp"
         android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
+    <Button
+        android:id="@+id/btnNewProducto"
+        android:layout_width="wrap_content"
+        android:layout_height="35dp"
+        android:layout_marginTop="20dp"
+        android:text="Crear producto"
+        android:textAllCaps="false"
+        android:textSize="30px"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="TouchTargetSizeCheck" />
+
     <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerProductosAdm"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_marginTop="80dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/lblProductos"
+        app:layout_constraintTop_toBottomOf="@+id/txtProductoAdm"
         tools:listitem="@layout/cardlist_producto_adm">
 
     </androidx.recyclerview.widget.RecyclerView>

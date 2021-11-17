@@ -52,7 +52,7 @@
             android:textColorHint="@color/colPlomo" />
 
         <Button
-            android:id="@+id/btnRegistrarCategoria"
+            android:id="@+id/btnRegistrarProducto"
             android:layout_width="match_parent"
             android:layout_height="60dp"
             android:layout_marginTop="40dp"

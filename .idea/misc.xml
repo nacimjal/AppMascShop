@@ -27,16 +27,16 @@
         <entry key="..\:/01_PJ_NACIM/AppMascShop/app/src/main/res/layout/cardlist_productos.xml" value="0.33" />
         <entry key="..\:/01_PJ_NACIM/AppMascShop/app/src/main/res/layout/content_main.xml" value="0.2957427536231884" />
         <entry key="..\:/01_PJ_NACIM/AppMascShop/app/src/main/res/layout/fragment_carrito.xml" value="0.33" />
-        <entry key="..\:/01_PJ_NACIM/AppMascShop/app/src/main/res/layout/fragment_categoria_producto.xml" value="0.36666666666666664" />
+        <entry key="..\:/01_PJ_NACIM/AppMascShop/app/src/main/res/layout/fragment_categoria_producto.xml" value="0.1" />
         <entry key="..\:/01_PJ_NACIM/AppMascShop/app/src/main/res/layout/fragment_confirmar_pedido.xml" value="0.25" />
         <entry key="..\:/01_PJ_NACIM/AppMascShop/app/src/main/res/layout/fragment_detalle_categoria_producto.xml" value="0.33" />
         <entry key="..\:/01_PJ_NACIM/AppMascShop/app/src/main/res/layout/fragment_detalle_pedido.xml" value="0.36666666666666664" />
         <entry key="..\:/01_PJ_NACIM/AppMascShop/app/src/main/res/layout/fragment_detalle_producto.xml" value="0.22" />
         <entry key="..\:/01_PJ_NACIM/AppMascShop/app/src/main/res/layout/fragment_detalle_producto_adm.xml" value="0.33" />
         <entry key="..\:/01_PJ_NACIM/AppMascShop/app/src/main/res/layout/fragment_gallery.xml" value="0.36666666666666664" />
-        <entry key="..\:/01_PJ_NACIM/AppMascShop/app/src/main/res/layout/fragment_home.xml" value="0.36666666666666664" />
+        <entry key="..\:/01_PJ_NACIM/AppMascShop/app/src/main/res/layout/fragment_home.xml" value="0.1" />
         <entry key="..\:/01_PJ_NACIM/AppMascShop/app/src/main/res/layout/fragment_mapa_cliente_pedido.xml" value="0.36666666666666664" />
-        <entry key="..\:/01_PJ_NACIM/AppMascShop/app/src/main/res/layout/fragment_producto.xml" value="0.36666666666666664" />
+        <entry key="..\:/01_PJ_NACIM/AppMascShop/app/src/main/res/layout/fragment_producto.xml" value="0.1" />
         <entry key="..\:/01_PJ_NACIM/AppMascShop/app/src/main/res/layout/fragment_slideshow.xml" value="0.36666666666666664" />
         <entry key="..\:/01_PJ_NACIM/AppMascShop/app/src/main/res/layout/nav_header_main.xml" value="0.36666666666666664" />
         <entry key="..\:/01_PJ_NACIM/AppMascShop/app/src/main/res/menu/activity_main_drawer.xml" value="0.36666666666666664" />
