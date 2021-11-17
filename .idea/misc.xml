@@ -9,15 +9,16 @@
         <entry key="..\:/01_PJ_NACIM/AppMascShop/app/src/main/res/drawable/ic_menu_camera.xml" value="0.3828125" />
         <entry key="..\:/01_PJ_NACIM/AppMascShop/app/src/main/res/drawable/ic_menu_gallery.xml" value="0.3828125" />
         <entry key="..\:/01_PJ_NACIM/AppMascShop/app/src/main/res/drawable/ic_menu_slideshow.xml" value="0.3828125" />
+        <entry key="..\:/01_PJ_NACIM/AppMascShop/app/src/main/res/drawable/icon_add.xml" value="0.3828125" />
         <entry key="..\:/01_PJ_NACIM/AppMascShop/app/src/main/res/drawable/icon_carrito.xml" value="0.3828125" />
         <entry key="..\:/01_PJ_NACIM/AppMascShop/app/src/main/res/drawable/icon_pedido.xml" value="0.3828125" />
         <entry key="..\:/01_PJ_NACIM/AppMascShop/app/src/main/res/drawable/icon_user.xml" value="0.3828125" />
         <entry key="..\:/01_PJ_NACIM/AppMascShop/app/src/main/res/drawable/side_nav_bar.xml" value="0.26979166666666665" />
         <entry key="..\:/01_PJ_NACIM/AppMascShop/app/src/main/res/layout/activity_account.xml" value="0.33" />
         <entry key="..\:/01_PJ_NACIM/AppMascShop/app/src/main/res/layout/activity_login.xml" value="0.22" />
-        <entry key="..\:/01_PJ_NACIM/AppMascShop/app/src/main/res/layout/activity_main.xml" value="0.36666666666666664" />
+        <entry key="..\:/01_PJ_NACIM/AppMascShop/app/src/main/res/layout/activity_main.xml" value="0.1" />
         <entry key="..\:/01_PJ_NACIM/AppMascShop/app/src/main/res/layout/app_bar_main.xml" value="0.36666666666666664" />
-        <entry key="..\:/01_PJ_NACIM/AppMascShop/app/src/main/res/layout/cardlist_categoria_producto.xml" value="0.36666666666666664" />
+        <entry key="..\:/01_PJ_NACIM/AppMascShop/app/src/main/res/layout/cardlist_categoria_producto.xml" value="0.1" />
         <entry key="..\:/01_PJ_NACIM/AppMascShop/app/src/main/res/layout/cardlist_detalle_productos.xml" value="0.25364583333333335" />
         <entry key="..\:/01_PJ_NACIM/AppMascShop/app/src/main/res/layout/cardlist_pedidos.xml" value="0.36666666666666664" />
         <entry key="..\:/01_PJ_NACIM/AppMascShop/app/src/main/res/layout/cardlist_producto_adm.xml" value="0.5" />

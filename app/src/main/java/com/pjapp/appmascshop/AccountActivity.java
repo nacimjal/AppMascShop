@@ -73,6 +73,7 @@ public class AccountActivity extends AppCompatActivity {
         u.setCorreo(correo);
         u.setContrasenia(contrasenia);
         u.setTerminos(checkTerminos);
+        u.setTipoUsuario("Cliente");
 
         databaseReference.child("Usuarios").child(u.getId()).setValue(u);
         AlertDialog.Builder ventana = new AlertDialog.Builder(AccountActivity.this);

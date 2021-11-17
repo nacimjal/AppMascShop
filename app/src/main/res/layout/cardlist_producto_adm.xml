@@ -71,7 +71,7 @@
                 app:layout_constraintTop_toBottomOf="@+id/textDescripcionProducto" />
 
             <ImageButton
-                android:id="@+id/imgButton_add"
+                android:id="@+id/btnEliminarCategoria"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:minHeight="48dp"
@@ -83,12 +83,12 @@
                 tools:ignore="SpeakableTextPresentCheck" />
 
             <ImageButton
-                android:id="@+id/imageButton2"
+                android:id="@+id/btnEditarCategoria"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginEnd="5dp"
                 app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toStartOf="@+id/imgButton_add"
+                app:layout_constraintEnd_toStartOf="@+id/btnEliminarCategoria"
                 app:layout_constraintTop_toTopOf="parent"
                 app:srcCompat="@drawable/icon_edit" />
 

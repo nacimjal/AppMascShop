@@ -1,10 +1,10 @@
 package com.pjapp.appmascshop;
 
-import android.content.ClipData;
 import android.os.Bundle;
 import android.view.View;
 import android.view.Menu;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.google.android.material.snackbar.Snackbar;
 import com.google.android.material.navigation.NavigationView;
@@ -22,6 +22,8 @@ public class MainActivity extends AppCompatActivity {
 
     private AppBarConfiguration mAppBarConfiguration;
     private ActivityMainBinding binding;
+
+    String rolUsuario;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -50,11 +52,12 @@ public class MainActivity extends AppCompatActivity {
         TextView correoLogin = headerView.findViewById(R.id.textCorreoLogeado);
         userLogin.setText(getIntent().getStringExtra("userLogeado"));
         correoLogin.setText(getIntent().getStringExtra("correoUser"));
+        rolUsuario = getIntent().getStringExtra("rolUsuario");
 
         // Passing each menu ID as a set of Ids because each
         // menu should be considered as top level destinations.
         mAppBarConfiguration = new AppBarConfiguration.Builder(
-                R.id.nav_home, R.id.nav_gallery, R.id.nav_slideshow)
+                R.id.nav_home, R.id.nav_gallery, R.id.nav_slideshow,R.id.nav_categoria,R.id.nav_producto)
                 .setOpenableLayout(drawer)
                 .build();
         NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment_content_main);
@@ -65,10 +68,28 @@ public class MainActivity extends AppCompatActivity {
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
+
         // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.main, menu);
         return true;
     }
+/*
+    @Override
+    public boolean onPrepareOptionsMenu(Menu menu) {
+
+        super.onPrepareOptionsMenu(menu);
+        try {
+            menu.findItem(R.id.nav_categoria).setVisible(true);
+            menu.findItem(R.id.nav_producto).setVisible(false);
+        }
+        catch(Exception e) {
+            Toast.makeText(MainActivity.this, "onPrepareOptionsMenu error", Toast.LENGTH_SHORT).show();
+        }
+
+        return true;
+    }
+    */
+
 
     @Override
     public boolean onSupportNavigateUp() {

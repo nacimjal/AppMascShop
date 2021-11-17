@@ -8,6 +8,7 @@ public class Usuario {
     private String correo;
     private String contrasenia;
     private String terminos;
+    private String tipoUsuario;
 
     public String getId() {
         return id;
@@ -55,5 +56,13 @@ public class Usuario {
 
     public void setTerminos(String terminos) {
         this.terminos = terminos;
+    }
+
+    public String getTipoUsuario() {
+        return tipoUsuario;
+    }
+
+    public void setTipoUsuario(String tipoUsuario) {
+        this.tipoUsuario = tipoUsuario;
     }
 }
