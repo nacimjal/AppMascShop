@@ -74,6 +74,7 @@ public class AccountActivity extends AppCompatActivity {
         u.setContrasenia(contrasenia);
         u.setTerminos(checkTerminos);
         u.setTipoUsuario("Cliente");
+        u.setDireccionEntrega("");//Se envia vacio xq se actualizara en la opción de dirección de entregas
 
         databaseReference.child("Usuarios").child(u.getId()).setValue(u);
         AlertDialog.Builder ventana = new AlertDialog.Builder(AccountActivity.this);

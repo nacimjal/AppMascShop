@@ -53,7 +53,7 @@ public class Producto extends Fragment {
     }
     private void listarDatos(){
         //Nodo Categorias
-        databaseReference.child("Productos").addValueEventListener(new ValueEventListener() {
+        databaseReference.child("Productos").orderByChild("codigo").addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 listaProductos.clear();

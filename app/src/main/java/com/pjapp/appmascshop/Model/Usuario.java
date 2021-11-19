@@ -9,6 +9,7 @@ public class Usuario {
     private String contrasenia;
     private String terminos;
     private String tipoUsuario;
+    private String direccionEntrega;
 
     public String getId() {
         return id;
@@ -64,5 +65,13 @@ public class Usuario {
 
     public void setTipoUsuario(String tipoUsuario) {
         this.tipoUsuario = tipoUsuario;
+    }
+
+    public String getDireccionEntrega() {
+        return direccionEntrega;
+    }
+
+    public void setDireccionEntrega(String direccionEntrega) {
+        this.direccionEntrega = direccionEntrega;
     }
 }

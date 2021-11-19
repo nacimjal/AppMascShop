@@ -66,8 +66,8 @@ public class DetalleCategoriaProducto extends Fragment {
     }
 
     private void asignarReferencias(View view){
-        txtNombreCategoria = view.findViewById(R.id.txtNombreCategoria);
-        btnRegistrarCategoria = view.findViewById(R.id.btnRegistrarProducto);
+        txtNombreCategoria = view.findViewById(R.id.txtDireccionEntrega);
+        btnRegistrarCategoria = view.findViewById(R.id.btnRegistrarDireccionEntrega);
 
         btnRegistrarCategoria.setOnClickListener(new View.OnClickListener() {
             @Override

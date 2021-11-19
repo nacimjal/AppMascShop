@@ -29,6 +29,7 @@ import com.pjapp.appmascshop.Model.Productos;
 import com.pjapp.appmascshop.R;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 import java.util.UUID;
 
@@ -38,7 +39,7 @@ public class DetalleProductoAdm extends Fragment {
     Spinner spinnerCategorias;
     Button btnRegistrarProducto;
 
-    String codigoProducto,nombreProducto,descProducto,precProducto,categoria;
+    String codigoProducto,nombreProducto,descProducto,precProducto,categoria,idProducto;
 
     FirebaseDatabase firebaseDatabase;
     DatabaseReference databaseReference;
@@ -56,11 +57,28 @@ public class DetalleProductoAdm extends Fragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         asignarReferencias(view);
         inicializarFirebase();
-        cargarSpinnerCategoria();
-        //verificarRegistraActualiza();
+        cargarSpinnerCategoria("");
+        verificarRegistraActualiza();
     }
 
-    private void cargarSpinnerCategoria(){
+    private void verificarRegistraActualiza() {
+        Bundle datosRecuperados = getArguments();
+        if (datosRecuperados == null) {
+            Toast.makeText(getContext(),"No hay datos para mostrar",Toast.LENGTH_SHORT).show();
+            return;
+        }else{
+            registra = false;
+            idProducto = datosRecuperados.getString("idProducto");
+            textCodigoProducto.setText(datosRecuperados.getString("codigoProducto"));
+            textNombreProducto.setText(datosRecuperados.getString("nombreProducto"));
+            textDescProducto.setText(datosRecuperados.getString("descripcionProducto"));
+            textPrecProducto.setText(datosRecuperados.getString("precioProducto"));
+            cargarSpinnerCategoria(datosRecuperados.getString("nombCategoria"));
+            //nombCategoria = datosRecuperados.getString("nombCategoria");
+        }
+    }
+
+    private void cargarSpinnerCategoria(String value){
         databaseReference.child("Categorias").addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
@@ -75,7 +93,9 @@ public class DetalleProductoAdm extends Fragment {
                 ArrayAdapter<String> categoriaAdapter =
                         new ArrayAdapter<String>(getContext(), android.R.layout.simple_spinner_item,listCategSpinner);
                 categoriaAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+
                 spinnerCategorias.setAdapter(categoriaAdapter);
+                spinnerCategorias.setSelection(categoriaAdapter.getPosition(value));
             }
 
             @Override
@@ -92,7 +112,7 @@ public class DetalleProductoAdm extends Fragment {
         textPrecProducto = view.findViewById(R.id.textPrecProducto);
         spinnerCategorias = view.findViewById(R.id.spinnerCategorias);
 
-        btnRegistrarProducto = view.findViewById(R.id.btnRegistrarProducto);
+        btnRegistrarProducto = view.findViewById(R.id.btnRegistrarDireccionEntrega);
 
         btnRegistrarProducto.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -140,7 +160,30 @@ public class DetalleProductoAdm extends Fragment {
     }
 
     private void actualizarProducto(){
-        Toast.makeText(getContext(), "Registrar producto", Toast.LENGTH_SHORT).show();
+        HashMap map = new HashMap();
+        map.put("codigo",codigoProducto);
+        map.put("nombre",nombreProducto);
+        map.put("descripcion",descProducto);
+        map.put("precio",Double.valueOf(precProducto).doubleValue());
+        map.put("categoria",categoria);
+
+        databaseReference.child("Productos").child(idProducto).updateChildren(map);
+        AlertDialog.Builder ventana = new AlertDialog.Builder(getContext());
+        ventana.setTitle("Mensaje informativo");
+        ventana.setMessage("Producto actualizado");
+        ventana.setPositiveButton("Aceptar", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialogInterface, int i) {
+                MainActivity activity = (MainActivity) getContext();
+                Fragment newFragment = new Producto();
+                activity.getSupportFragmentManager()
+                        .beginTransaction()
+                        .replace(R.id.nav_host_fragment_content_main,newFragment)
+                        .addToBackStack(null)
+                        .commit();
+            }
+        });
+        ventana.create().show();
     }
 
     private boolean validarCampos(){

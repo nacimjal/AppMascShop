@@ -126,7 +126,7 @@
             android:prompt="@string/spinnerTipo1"></Spinner>
 
         <Button
-            android:id="@+id/btnRegistrarProducto"
+            android:id="@+id/btnRegistrarDireccionEntrega"
             android:layout_width="match_parent"
             android:layout_height="60dp"
             android:layout_marginTop="40dp"

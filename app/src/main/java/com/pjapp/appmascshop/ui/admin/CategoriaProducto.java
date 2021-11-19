@@ -22,17 +22,14 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 import com.pjapp.appmascshop.Adapters.CategoriaAdapter;
-import com.pjapp.appmascshop.LoginActivity;
 import com.pjapp.appmascshop.MainActivity;
 import com.pjapp.appmascshop.Model.Categoria;
 import com.pjapp.appmascshop.R;
-import com.pjapp.appmascshop.databinding.FragmentCategoriaProductoBinding;
 
 import java.util.ArrayList;
 import java.util.List;
 
 public class CategoriaProducto extends Fragment {
-
 
     RecyclerView recyclerCategorias;
     Button btnNewcategoria;

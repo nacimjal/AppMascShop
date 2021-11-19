@@ -99,6 +99,8 @@ public class LoginActivity extends AppCompatActivity {
                         intent.putExtra("userLogeado",listUsuarios.get(i).getNombres()+" "+listUsuarios.get(i).getApellidos());
                         intent.putExtra("correoUser",listUsuarios.get(i).getCorreo());
                         intent.putExtra("rolUsuario",listUsuarios.get(i).getTipoUsuario());
+                        intent.putExtra("idUserLogin",listUsuarios.get(i).getId());
+                        intent.putExtra("direccionEntrega",listUsuarios.get(i).getDireccionEntrega());
 
                         startActivity(intent);
                     }

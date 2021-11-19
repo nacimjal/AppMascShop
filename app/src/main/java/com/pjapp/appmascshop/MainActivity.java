@@ -1,6 +1,10 @@
 package com.pjapp.appmascshop;
 
+import android.app.Fragment;
+import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.view.View;
 import android.view.Menu;
 import android.widget.TextView;
@@ -9,6 +13,8 @@ import android.widget.Toast;
 import com.google.android.material.snackbar.Snackbar;
 import com.google.android.material.navigation.NavigationView;
 
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
 import androidx.navigation.ui.AppBarConfiguration;
@@ -17,13 +23,14 @@ import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.pjapp.appmascshop.databinding.ActivityMainBinding;
+import com.pjapp.appmascshop.ui.slideshow.SlideshowFragment;
 
 public class MainActivity extends AppCompatActivity {
 
     private AppBarConfiguration mAppBarConfiguration;
     private ActivityMainBinding binding;
 
-    String rolUsuario;
+    String rolUsuario,idUsuarioGeneral,direccionEntrega;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,15 +41,6 @@ public class MainActivity extends AppCompatActivity {
 
 
         setSupportActionBar(binding.appBarMain.toolbar);
-
-        /*
-        binding.appBarMain.fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
-            }
-        });*/
 
         DrawerLayout drawer = binding.drawerLayout;
         NavigationView navigationView = binding.navView;
@@ -55,6 +53,17 @@ public class MainActivity extends AppCompatActivity {
         userLogin.setText(getIntent().getStringExtra("userLogeado"));
         correoLogin.setText(getIntent().getStringExtra("correoUser"));
         rolUsuario = getIntent().getStringExtra("rolUsuario");
+        idUsuarioGeneral = getIntent().getStringExtra("idUserLogin");
+        direccionEntrega =  getIntent().getStringExtra("direccionEntrega");
+
+
+        //Guardamos IdUsuario logeado en SharedPreferences temporalmente
+        SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(MainActivity.this);
+        SharedPreferences.Editor editor = preferences.edit();
+        editor.putString("idUsuarioGeneral",idUsuarioGeneral);
+        editor.putString("direccionEntrega",direccionEntrega);
+        editor.commit();
+
 
         // Passing each menu ID as a set of Ids because each
         // menu should be considered as top level destinations.
@@ -67,6 +76,7 @@ public class MainActivity extends AppCompatActivity {
         NavigationUI.setupWithNavController(navigationView, navController);
 
     }
+
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {

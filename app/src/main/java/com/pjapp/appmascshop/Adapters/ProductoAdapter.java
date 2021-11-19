@@ -2,6 +2,7 @@ package com.pjapp.appmascshop.Adapters;
 
 import android.content.Context;
 import android.content.DialogInterface;
+import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -10,13 +11,17 @@ import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AlertDialog;
+import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.google.firebase.FirebaseApp;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.pjapp.appmascshop.MainActivity;
 import com.pjapp.appmascshop.Model.Productos;
 import com.pjapp.appmascshop.R;
+import com.pjapp.appmascshop.ui.admin.DetalleCategoriaProducto;
+import com.pjapp.appmascshop.ui.admin.DetalleProductoAdm;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -48,6 +53,22 @@ public class ProductoAdapter extends RecyclerView.Adapter<ProductoAdapter.MyView
         holder.btnEditarProducto.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                MainActivity activity = (MainActivity) view.getContext();
+                Fragment newFragment = new DetalleProductoAdm();
+                Bundle envData = new Bundle();
+                envData.putString("idProducto",listaProductos.get(position).getIdProducto()+"");
+                envData.putString("codigoProducto",listaProductos.get(position).getCodigo()+"");
+                envData.putString("nombreProducto",listaProductos.get(position).getNombre()+"");
+                envData.putString("nombCategoria",listaProductos.get(position).getCategoria()+"");
+                envData.putString("descripcionProducto",listaProductos.get(position).getDescripcion()+"");
+                envData.putString("precioProducto",listaProductos.get(position).getPrecio()+"");
+
+                newFragment.setArguments(envData);
+                activity.getSupportFragmentManager()
+                        .beginTransaction()
+                        .replace(R.id.nav_host_fragment_content_main,newFragment)
+                        .addToBackStack(null)
+                        .commit();
 
             }
         });
