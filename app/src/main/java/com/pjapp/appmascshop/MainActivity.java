@@ -39,7 +39,6 @@ public class MainActivity extends AppCompatActivity {
         binding = ActivityMainBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
 
-
         setSupportActionBar(binding.appBarMain.toolbar);
 
         DrawerLayout drawer = binding.drawerLayout;
@@ -64,7 +63,6 @@ public class MainActivity extends AppCompatActivity {
         editor.putString("direccionEntrega",direccionEntrega);
         editor.commit();
 
-
         // Passing each menu ID as a set of Ids because each
         // menu should be considered as top level destinations.
         mAppBarConfiguration = new AppBarConfiguration.Builder(
@@ -77,7 +75,6 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
-
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
 
@@ -85,22 +82,6 @@ public class MainActivity extends AppCompatActivity {
         getMenuInflater().inflate(R.menu.main, menu);
         return true;
     }
-/*
-    @Override
-    public boolean onPrepareOptionsMenu(Menu menu) {
-
-        super.onPrepareOptionsMenu(menu);
-        try {
-            menu.findItem(R.id.nav_categoria).setVisible(true);
-            menu.findItem(R.id.nav_producto).setVisible(false);
-        }
-        catch(Exception e) {
-            Toast.makeText(MainActivity.this, "onPrepareOptionsMenu error", Toast.LENGTH_SHORT).show();
-        }
-
-        return true;
-    }
-    */
 
 
     @Override
