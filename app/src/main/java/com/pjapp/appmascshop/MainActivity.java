@@ -30,6 +30,7 @@ public class MainActivity extends AppCompatActivity {
     private AppBarConfiguration mAppBarConfiguration;
     private ActivityMainBinding binding;
 
+
     String rolUsuario,idUsuarioGeneral,direccionEntrega;
 
     @Override

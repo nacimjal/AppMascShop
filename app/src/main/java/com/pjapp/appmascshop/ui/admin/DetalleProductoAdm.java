@@ -106,7 +106,7 @@ public class DetalleProductoAdm extends Fragment {
     }
 
     private void asignarReferencias(View view){
-        textCodigoProducto = view.findViewById(R.id.txtCodProdCard);
+        textCodigoProducto = view.findViewById(R.id.lblProductoCarrito);
         textNombreProducto = view.findViewById(R.id.textNombreProducto);
         textDescProducto = view.findViewById(R.id.textDescProducto);
         textPrecProducto = view.findViewById(R.id.textPrecProducto);

@@ -106,7 +106,7 @@ public class CategoriaAdapter extends RecyclerView.Adapter<CategoriaAdapter.MyVi
             super(itemView);
             textCategoriaProducto = itemView.findViewById(R.id.textCategoriaProducto);
             btnEditarCategoria = itemView.findViewById(R.id.btnEditarProducto);
-            btnEliminarCategoria = itemView.findViewById(R.id.btnEliminarProducto);
+            btnEliminarCategoria = itemView.findViewById(R.id.btnCleanCarrito);
         }
     }
 }

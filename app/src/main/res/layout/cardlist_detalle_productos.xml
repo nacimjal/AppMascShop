@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:orientation="vertical"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="wrap_content">
 
     <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
@@ -19,21 +19,22 @@
             android:padding="15dp">
 
             <TextView
-                android:id="@+id/txtNombCategoriaUser"
+                android:id="@+id/txtNombProducto"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Comida 1"
                 android:textColor="@color/black"
-                android:textSize="@dimen/_sizeTextProductos"
+                android:textSize="14dp"
                 android:textStyle="bold"
-                app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
             <ImageButton
-                android:id="@+id/btnEliminarProducto"
+                android:id="@+id/btnCleanCarrito"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:background="@color/color_principal"
+                android:minWidth="48dp"
                 android:minHeight="48dp"
                 android:textAllCaps="false"
                 app:layout_constraintBottom_toBottomOf="parent"
@@ -41,6 +42,38 @@
                 app:layout_constraintTop_toTopOf="parent"
                 app:srcCompat="@drawable/icon_add"
                 tools:ignore="SpeakableTextPresentCheck" />
+
+            <TextView
+                android:id="@+id/txtDescripcionProducto"
+                android:layout_width="317dp"
+                android:layout_height="37dp"
+                android:layout_marginTop="2dp"
+                android:text="Descripcion del producto"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/txtNombProducto" />
+
+            <TextView
+                android:id="@+id/textView4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:text="Prec:"
+                android:textColor="@color/black"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/txtDescripcionProducto" />
+
+            <TextView
+                android:id="@+id/txtPrecioProducto"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="5dp"
+                android:layout_marginTop="5dp"
+                android:textColor="@color/black"
+                android:text="500.00"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/textView4"
+                app:layout_constraintTop_toBottomOf="@+id/txtDescripcionProducto" />
 
 
         </androidx.constraintlayout.widget.ConstraintLayout>

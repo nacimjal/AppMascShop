@@ -5,13 +5,10 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
-import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
-import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -22,13 +19,9 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
-import com.pjapp.appmascshop.Adapters.CategoriaAdapter;
 import com.pjapp.appmascshop.Adapters.CategoriaAdapterUser;
-import com.pjapp.appmascshop.MainActivity;
 import com.pjapp.appmascshop.Model.Categoria;
 import com.pjapp.appmascshop.R;
-import com.pjapp.appmascshop.databinding.FragmentHomeBinding;
-import com.pjapp.appmascshop.ui.admin.DetalleCategoriaProducto;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -89,7 +82,7 @@ public class HomeFragment extends Fragment {
     }
 
     private void asignarReferencias(View view){
-        recyclerCategoriaUser = view.findViewById(R.id.recyclerCategoriaUser);
+        recyclerCategoriaUser = view.findViewById(R.id.recyclerProductosCat);
     }
 
     private void inicializarFirebase() {

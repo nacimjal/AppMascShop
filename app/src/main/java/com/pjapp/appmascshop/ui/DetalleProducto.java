@@ -2,65 +2,128 @@ package com.pjapp.appmascshop.ui;
 
 import android.os.Bundle;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageButton;
+import android.widget.TextView;
+import android.widget.Toast;
 
+import com.google.firebase.FirebaseApp;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
+import com.pjapp.appmascshop.Adapters.ProductoAdapter;
+import com.pjapp.appmascshop.Adapters.ProductoCategoriaAdapter;
+import com.pjapp.appmascshop.MainActivity;
+import com.pjapp.appmascshop.Model.Productos;
 import com.pjapp.appmascshop.R;
+import com.pjapp.appmascshop.ui.admin.DetalleProductoAdm;
+import com.pjapp.appmascshop.ui.home.HomeFragment;
 
-/**
- * A simple {@link Fragment} subclass.
- * Use the {@link DetalleProducto#newInstance} factory method to
- * create an instance of this fragment.
- */
+import java.util.ArrayList;
+import java.util.List;
+
 public class DetalleProducto extends Fragment {
 
-    // TODO: Rename parameter arguments, choose names that match
-    // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-    private static final String ARG_PARAM1 = "param1";
-    private static final String ARG_PARAM2 = "param2";
+    ImageButton btnBackProd;
+    TextView txtNombCategoria;
+    RecyclerView recyclerProductosCat;
 
-    // TODO: Rename and change types of parameters
-    private String mParam1;
-    private String mParam2;
+    String idCategoria;
 
-    public DetalleProducto() {
-        // Required empty public constructor
-    }
+    FirebaseDatabase firebaseDatabase;
+    DatabaseReference databaseReference;
 
-    /**
-     * Use this factory method to create a new instance of
-     * this fragment using the provided parameters.
-     *
-     * @param param1 Parameter 1.
-     * @param param2 Parameter 2.
-     * @return A new instance of fragment DetalleProducto.
-     */
-    // TODO: Rename and change types and number of parameters
-    public static DetalleProducto newInstance(String param1, String param2) {
-        DetalleProducto fragment = new DetalleProducto();
-        Bundle args = new Bundle();
-        args.putString(ARG_PARAM1, param1);
-        args.putString(ARG_PARAM2, param2);
-        fragment.setArguments(args);
-        return fragment;
+    private List<Productos> listaProductos = new ArrayList<>();
+    ProductoCategoriaAdapter adaptador;
+
+    @Override
+    public View onCreateView(LayoutInflater inflater, ViewGroup container,Bundle savedInstanceState) {
+        return inflater.inflate(R.layout.fragment_detalle_producto, container, false);
     }
 
     @Override
-    public void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        if (getArguments() != null) {
-            mParam1 = getArguments().getString(ARG_PARAM1);
-            mParam2 = getArguments().getString(ARG_PARAM2);
+    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
+        asignarReferencias(view);
+        inicializarFirebase();
+        recuperarDatosEnviados();
+        listarDatos();
+    }
+
+    private void recuperarDatosEnviados() {
+        Bundle datosRecuperados = getArguments();
+        if (datosRecuperados == null) {
+            Toast.makeText(getContext(),"No hay datos para mostrar",Toast.LENGTH_SHORT).show();
+            return;
+        }else{
+
+            idCategoria = datosRecuperados.getString("nombCategoria");
+            txtNombCategoria.setText(datosRecuperados.getString("nombCategoria"));
+
         }
     }
 
-    @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_detalle_producto, container, false);
+    private void listarDatos(){
+
+        databaseReference.child("Productos").orderByChild("categoria").equalTo(idCategoria).addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                listaProductos.clear();
+                int cont = 0;
+                for(DataSnapshot item: snapshot.getChildren()){
+                    cont++;
+                    Productos p = item.getValue(Productos.class);
+                    listaProductos.add(p);
+                }
+
+                if (cont<=0){
+                    Toast.makeText(getContext(), "No hay productos para mostrar", Toast.LENGTH_SHORT).show();
+                }
+
+                adaptador = new ProductoCategoriaAdapter(getContext(),listaProductos);
+                recyclerProductosCat.setAdapter(adaptador);
+                recyclerProductosCat.setLayoutManager(new LinearLayoutManager(getContext()));
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+                Log.i("Error => ", error.getMessage());
+            }
+        });
+    }
+
+    private void asignarReferencias(View view){
+        recyclerProductosCat = view.findViewById(R.id.recyclerProductosCat);
+        txtNombCategoria = view.findViewById(R.id.txtNombCategoria);
+        btnBackProd = view.findViewById(R.id.btnBackProd);
+
+        btnBackProd.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                MainActivity activity = (MainActivity) view.getContext();
+                Fragment newFragment = new HomeFragment();
+                activity.getSupportFragmentManager()
+                        .beginTransaction()
+                        .replace(R.id.nav_host_fragment_content_main,newFragment)
+                        .addToBackStack(null)
+                        .commit();
+            }
+        });
+    }
+
+    private void inicializarFirebase() {
+        FirebaseApp.initializeApp(getContext());
+        firebaseDatabase = FirebaseDatabase.getInstance();
+        databaseReference = firebaseDatabase.getReference();
     }
 }

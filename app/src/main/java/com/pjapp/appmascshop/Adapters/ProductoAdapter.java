@@ -20,7 +20,6 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.pjapp.appmascshop.MainActivity;
 import com.pjapp.appmascshop.Model.Productos;
 import com.pjapp.appmascshop.R;
-import com.pjapp.appmascshop.ui.admin.DetalleCategoriaProducto;
 import com.pjapp.appmascshop.ui.admin.DetalleProductoAdm;
 
 import java.util.ArrayList;
@@ -111,13 +110,13 @@ public class ProductoAdapter extends RecyclerView.Adapter<ProductoAdapter.MyView
 
         public MyViewHolder(@NonNull View itemView) {
             super(itemView);
-            txtCodProdCard = itemView.findViewById(R.id.txtCodProdCard);
+            txtCodProdCard = itemView.findViewById(R.id.lblProductoCarrito);
             txtNombProdCard = itemView.findViewById(R.id.txtNombProdCard);
             txtCategProdCard = itemView.findViewById(R.id.txtCategProdCard);
             txtPrecProdCard = itemView.findViewById(R.id.txtPrecProdCard);
 
             btnEditarProducto = itemView.findViewById(R.id.btnEditarProducto);
-            btnEliminarProducto = itemView.findViewById(R.id.btnEliminarProducto);
+            btnEliminarProducto = itemView.findViewById(R.id.btnCleanCarrito);
         }
     }
 

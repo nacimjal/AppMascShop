@@ -9,39 +9,42 @@
     android:paddingTop="5dp"
     tools:context=".ui.DetalleProducto">
 
-
-    <ImageView
-        android:id="@+id/imageView6"
+    <ImageButton
+        android:id="@+id/btnBackProd"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:minHeight="48dp"
         android:src="@drawable/icon_back"
-        android:layout_marginTop="20dp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="SpeakableTextPresentCheck" />
 
     <TextView
-        android:id="@+id/txtNombProducto"
+        android:id="@+id/txtNombCategoria"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
         android:text="Alimentación"
-        android:textStyle="bold"
         android:textSize="20dp"
+        android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/imageView6"
+        app:layout_constraintStart_toEndOf="@+id/btnBackProd"
         app:layout_constraintTop_toTopOf="parent" />
 
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/recyclerCategoriaUser"
+        android:id="@+id/recyclerProductosCat"
         android:layout_width="match_parent"
         android:layout_height="600dp"
         android:layout_marginTop="40dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txtNombProducto"
+        app:layout_constraintTop_toBottomOf="@+id/txtNombCategoria"
         tools:listitem="@layout/cardlist_detalle_productos">
 
     </androidx.recyclerview.widget.RecyclerView>
+
+
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

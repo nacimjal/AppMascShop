@@ -19,7 +19,7 @@
             android:paddingHorizontal="5dp">
 
             <TextView
-                android:id="@+id/txtCodProdCard"
+                android:id="@+id/lblProductoCarrito"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:gravity="left"
@@ -40,7 +40,7 @@
                 android:textColor="@color/black"
                 android:textSize="@dimen/_sizeTextProdCarrito"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/txtCodProdCard" />
+                app:layout_constraintTop_toBottomOf="@+id/lblProductoCarrito" />
 
             <TextView
                 android:id="@+id/txtCategProdCard"
@@ -79,7 +79,7 @@
                 app:layout_constraintTop_toBottomOf="@+id/txtNombProdCard" />
 
             <ImageButton
-                android:id="@+id/btnEliminarProducto"
+                android:id="@+id/btnCleanCarrito"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:minHeight="48dp"
@@ -97,7 +97,7 @@
                 android:layout_marginEnd="5dp"
                 android:minHeight="48dp"
                 app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toStartOf="@+id/btnEliminarProducto"
+                app:layout_constraintEnd_toStartOf="@+id/btnCleanCarrito"
                 app:layout_constraintTop_toTopOf="parent"
                 app:srcCompat="@drawable/icon_edit"
                 tools:ignore="SpeakableTextPresentCheck" />

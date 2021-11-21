@@ -7,7 +7,7 @@
     android:background="@color/white"
     android:paddingHorizontal="15dp"
     android:paddingTop="5dp"
-    tools:context=".ui.carrito.ConfirmarPedido">
+    tools:context=".ui.carritoModel.ConfirmarPedido">
 
     <TextView
         android:id="@+id/lblConfirmarPedido"

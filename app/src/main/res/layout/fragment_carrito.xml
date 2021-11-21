@@ -7,38 +7,30 @@
     android:background="@color/white"
     android:paddingHorizontal="15dp"
     android:paddingTop="5dp"
-    tools:context=".ui.carrito.Carrito">
+    tools:context=".ui.carritoModel.Carrito">
 
-    <ImageView
-        android:id="@+id/imageView6"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        android:src="@drawable/icon_back"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/txtNombProducto"
+        android:id="@+id/txtNombCategoria"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
-        android:text="Detalle del carrito"
+        android:text="Detalle del carritoModel"
         android:textSize="20dp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/imageView6"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <!--TODO: al dar click en el card del producto se mostrará una elerta donde se ingresará la cantidad -->
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/listaProductosCarrito"
+        android:id="@+id/recyclerProductosCarrito"
         android:layout_width="match_parent"
         android:layout_height="350dp"
         android:layout_marginTop="40dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txtNombProducto"
+        app:layout_constraintTop_toBottomOf="@+id/txtNombCategoria"
         tools:listitem="@layout/cardlist_producto_carrito">
 
     </androidx.recyclerview.widget.RecyclerView>
@@ -51,7 +43,7 @@
         android:layout_marginTop="20dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/listaProductosCarrito">
+        app:layout_constraintTop_toBottomOf="@+id/recyclerProductosCarrito">
 
         <!--Fila Subtotal-->
         <TextView
