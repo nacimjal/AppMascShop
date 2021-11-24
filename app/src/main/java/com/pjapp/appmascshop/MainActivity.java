@@ -99,7 +99,6 @@ public class MainActivity extends AppCompatActivity {
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
         switch (item.getItemId()){
             case R.id.action_carrito:
-                Toast.makeText(this, "Boton carrito", Toast.LENGTH_SHORT).show();
                 FragmentManager fm = getSupportFragmentManager();
                 FragmentTransaction ft = fm.beginTransaction();
                 ft.add(R.id.nav_host_fragment_content_main,new Carrito());

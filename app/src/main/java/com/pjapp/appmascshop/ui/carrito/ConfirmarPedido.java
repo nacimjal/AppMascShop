@@ -2,65 +2,83 @@ package com.pjapp.appmascshop.ui.carrito;
 
 import android.os.Bundle;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.ImageView;
+import android.widget.TextView;
+import android.widget.Toast;
 
+import com.pjapp.appmascshop.MainActivity;
 import com.pjapp.appmascshop.R;
 
-/**
- * A simple {@link Fragment} subclass.
- * Use the {@link ConfirmarPedido#newInstance} factory method to
- * create an instance of this fragment.
- */
+import java.text.DecimalFormat;
+
+
 public class ConfirmarPedido extends Fragment {
+    TextView txtSubtotalPedConf,txtIgvPedConf,txtTotalPedConf;
+    Button btnConfirmarPedido;
+    ImageView imgEvidenciaPed;
 
-    // TODO: Rename parameter arguments, choose names that match
-    // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-    private static final String ARG_PARAM1 = "param1";
-    private static final String ARG_PARAM2 = "param2";
+    String subtotal;
 
-    // TODO: Rename and change types of parameters
-    private String mParam1;
-    private String mParam2;
-
-    public ConfirmarPedido() {
-        // Required empty public constructor
-    }
-
-    /**
-     * Use this factory method to create a new instance of
-     * this fragment using the provided parameters.
-     *
-     * @param param1 Parameter 1.
-     * @param param2 Parameter 2.
-     * @return A new instance of fragment ConfirmarPedido.
-     */
-    // TODO: Rename and change types and number of parameters
-    public static ConfirmarPedido newInstance(String param1, String param2) {
-        ConfirmarPedido fragment = new ConfirmarPedido();
-        Bundle args = new Bundle();
-        args.putString(ARG_PARAM1, param1);
-        args.putString(ARG_PARAM2, param2);
-        fragment.setArguments(args);
-        return fragment;
+    @Override
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+        return inflater.inflate(R.layout.fragment_confirmar_pedido, container, false);
     }
 
     @Override
-    public void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        if (getArguments() != null) {
-            mParam1 = getArguments().getString(ARG_PARAM1);
-            mParam2 = getArguments().getString(ARG_PARAM2);
+    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
+        asignarReferencias(view);
+        obtenerDatosEnviados();
+        calcularSubtotales();
+    }
+
+    private void calcularSubtotales() {
+
+        Double sumSubtotal = Double.parseDouble(subtotal);
+        Double igv = 0.0;
+        Double total = 0.0;
+
+        igv = sumSubtotal * 0.18;
+        total = sumSubtotal + igv;
+
+        DecimalFormat df = new DecimalFormat("#.00");
+
+        txtSubtotalPedConf.setText("S/ "+df.format(sumSubtotal));
+        txtIgvPedConf.setText("S/ "+df.format(igv));
+        txtTotalPedConf.setText("S/ "+df.format(total));
+
+    }
+
+    private void obtenerDatosEnviados() {
+        Bundle datosRecuperados = getArguments();
+        if (datosRecuperados == null) {
+            Toast.makeText(getContext(),"No hay datos para mostrar",Toast.LENGTH_SHORT).show();
+            return;
+        }else{
+            subtotal = datosRecuperados.getString("subtotalPedido");
         }
     }
 
-    @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_confirmar_pedido, container, false);
+    private void asignarReferencias(View view) {
+
+        txtSubtotalPedConf = view.findViewById(R.id.txtSubtotalPedConf);
+        txtIgvPedConf = view.findViewById(R.id.txtIgvPedConf);
+        txtTotalPedConf = view.findViewById(R.id.txtTotalPedConf);
+
+        btnConfirmarPedido = view.findViewById(R.id.btnConfirmarPedido);
+        btnConfirmarPedido.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Toast.makeText(getContext(), "Confirmar pedido: "+subtotal, Toast.LENGTH_SHORT).show();
+            }
+        });
     }
 }

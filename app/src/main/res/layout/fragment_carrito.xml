@@ -22,7 +22,6 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <!--TODO: al dar click en el card del producto se mostrará una elerta donde se ingresará la cantidad -->
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerProductosCarrito"
         android:layout_width="match_parent"
@@ -57,8 +56,9 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
+        <!--Fila IGV-->
         <TextView
-            android:id="@+id/txtSubtotal"
+            android:id="@+id/txtSubtotalCarr"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="S/ 20.00"
@@ -67,7 +67,6 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
-        <!--Fila IGV-->
         <TextView
             android:id="@+id/labelIgv"
             android:layout_width="wrap_content"
@@ -81,7 +80,7 @@
             app:layout_constraintTop_toBottomOf="@+id/labelSubtotal" />
 
         <TextView
-            android:id="@+id/txtIgv"
+            android:id="@+id/txtIgvPedCarr"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
@@ -89,7 +88,7 @@
             android:textColor="@color/black"
             android:textSize="@dimen/_sizeTextDetPed"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/txtSubtotal" />
+            app:layout_constraintTop_toBottomOf="@+id/txtSubtotalCarr" />
 
         <!--Fila Total-->
         <TextView
@@ -105,7 +104,7 @@
             app:layout_constraintTop_toBottomOf="@+id/labelIgv" />
 
         <TextView
-            android:id="@+id/txtTotal"
+            android:id="@+id/txtTotalPedCarr"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
@@ -113,7 +112,7 @@
             android:textColor="@color/black"
             android:textSize="@dimen/_sizeTextDetPed"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/txtIgv" />
+            app:layout_constraintTop_toBottomOf="@+id/txtIgvPedCarr" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

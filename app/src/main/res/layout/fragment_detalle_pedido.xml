@@ -256,7 +256,7 @@
                     app:layout_constraintTop_toTopOf="parent" />
 
                 <TextView
-                    android:id="@+id/txtSubtotal"
+                    android:id="@+id/txtSubtotalPedConf"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="S/ 404.84"
@@ -279,7 +279,7 @@
                     app:layout_constraintTop_toBottomOf="@+id/labelSubtotal" />
 
                 <TextView
-                    android:id="@+id/txtIgv"
+                    android:id="@+id/txtIgvPedConf"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="5dp"
@@ -287,7 +287,7 @@
                     android:textColor="@color/black"
                     android:textSize="@dimen/_sizeTextDetPed"
                     app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/txtSubtotal" />
+                    app:layout_constraintTop_toBottomOf="@+id/txtSubtotalPedConf" />
 
                 <!--Fila Total-->
                 <TextView
@@ -303,7 +303,7 @@
                     app:layout_constraintTop_toBottomOf="@+id/labelIgv" />
 
                 <TextView
-                    android:id="@+id/txtTotal"
+                    android:id="@+id/txtTotalPedConf"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="5dp"
@@ -311,7 +311,7 @@
                     android:textColor="@color/black"
                     android:textSize="@dimen/_sizeTextDetPed"
                     app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/txtIgv" />
+                    app:layout_constraintTop_toBottomOf="@+id/txtIgvPedConf" />
 
             </androidx.constraintlayout.widget.ConstraintLayout>
         </androidx.cardview.widget.CardView>

@@ -18,6 +18,7 @@ import android.widget.Toast;
 
 import com.pjapp.appmascshop.Adapters.CarritoAdapter;
 import com.pjapp.appmascshop.DAO.DAOCarrito;
+import com.pjapp.appmascshop.MainActivity;
 import com.pjapp.appmascshop.Model.CarritoModel;
 import com.pjapp.appmascshop.R;
 
@@ -32,7 +33,6 @@ public class Carrito extends Fragment {
 
     Double subtotal;
 
-    //DAOCarrito daoCarrito = new DAOCarrito(getContext());
     List<CarritoModel> listaCarritoModel = new ArrayList<>();
     CarritoAdapter adapterList;
 
@@ -72,9 +72,9 @@ public class Carrito extends Fragment {
 
         DecimalFormat df = new DecimalFormat("#.00");
 
-        txtSubtotal.setText(subtotal+"");
-        txtIgv.setText(df.format(igv)+"");
-        txtTotal.setText(df.format(total)+"");
+        txtSubtotal.setText("S/ "+df.format(subtotal));
+        txtIgv.setText("S/ "+df.format(igv));
+        txtTotal.setText("S/ "+df.format(total));
 
     }
 
@@ -88,15 +88,27 @@ public class Carrito extends Fragment {
 
     private void asignarReferencias(View view) {
         recyclerProductosCarrito = view.findViewById(R.id.recyclerProductosCarrito);
-        txtSubtotal = view.findViewById(R.id.txtSubtotal);
-        txtIgv = view.findViewById(R.id.txtIgv);
-        txtTotal = view.findViewById(R.id.txtTotal);
+        txtSubtotal = view.findViewById(R.id.txtSubtotalCarr);
+        txtIgv = view.findViewById(R.id.txtIgvPedCarr);
+        txtTotal = view.findViewById(R.id.txtTotalPedCarr);
 
         btnSolicitarPedido = view.findViewById(R.id.btnSolicitarPedido);
         btnSolicitarPedido.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Toast.makeText(getContext(), "Solicitar pedido", Toast.LENGTH_SHORT).show();
+                Toast.makeText(getContext(), "subt: "+subtotal, Toast.LENGTH_SHORT).show();
+
+                MainActivity activity = (MainActivity) view.getContext();
+                Fragment newFragment = new ConfirmarPedido();
+                Bundle envData = new Bundle();
+                envData.putString("subtotalPedido",subtotal+"");
+
+                newFragment.setArguments(envData);
+                activity.getSupportFragmentManager()
+                        .beginTransaction()
+                        .replace(R.id.nav_host_fragment_content_main,newFragment)
+                        .addToBackStack(null)
+                        .commit();
             }
         });
     }

@@ -52,17 +52,18 @@ public class DAOCarrito {
     }
 
     //Metodo modificar cantidad del producto
-    public String modificarCantidadCarrito(CarritoModel carritoModel){
+    public String modificarCantidadCarrito(String id,String cantidad){
         String mensaje = "";
         try {
             ContentValues valores = new ContentValues();
-            valores.put("cantidad", carritoModel.getCantidad());
 
-            long resultado = db.update(Constantes.NOMBRE_TABLA,valores,"idProducto='"+carritoModel.getIdProducto()+"'",null);
+            valores.put("cantidad", cantidad);
+
+            long resultado = db.update(Constantes.NOMBRE_TABLA,valores,"idProducto='"+ id +"'",null);
             if (resultado == -1){
-                mensaje =  "Error al actualizar cantidad del producto";
+                mensaje =  "Error";
             }else{
-                mensaje =  "Se actualizo la cantidad correctamente";
+                mensaje =  "Actualizado";
             }
 
         }catch (Exception e){
