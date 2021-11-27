@@ -7,8 +7,6 @@ public class CarritoModel {
     private Integer cantidad;
 
     //Constructor
-
-
     public CarritoModel(String idProducto, String producto, Double precio, Integer cantidad) {
         this.idProducto = idProducto;
         this.producto = producto;

@@ -89,6 +89,24 @@ public class DAOCarrito {
 
         return mensaje;
     }
+    //Metodo limpiar carrito
+    public String limpiarCarrito(){
+        String mensaje = "";
+        try {
+            long resultado = db.delete(Constantes.NOMBRE_TABLA,null,null);
+
+            if (resultado == -1){
+                mensaje =  "Error al limpiar el carrito";
+            }else{
+                mensaje =  "Se limpio el carrito con éxito";
+            }
+        }catch (Exception e){
+            Log.d("=>",e.getMessage());
+        }
+
+        return mensaje;
+    }
+
 
     //Metodo listar vehiculos
     public List<CarritoModel> getCarrito(){

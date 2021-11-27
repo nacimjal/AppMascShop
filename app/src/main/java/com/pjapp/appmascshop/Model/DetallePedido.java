@@ -6,8 +6,7 @@ public class DetallePedido {
     private String idPedido;
     private String idProducto;
     private Double precio;
-    private Double cantidad;
-    private Double importe;
+    private Integer cantidad;
 
     public String getIdDetallePedido() {
         return idDetallePedido;
@@ -41,19 +40,11 @@ public class DetallePedido {
         this.precio = precio;
     }
 
-    public Double getCantidad() {
+    public Integer getCantidad() {
         return cantidad;
     }
 
-    public void setCantidad(Double cantidad) {
+    public void setCantidad(Integer cantidad) {
         this.cantidad = cantidad;
-    }
-
-    public Double getImporte() {
-        return importe;
-    }
-
-    public void setImporte(Double importe) {
-        this.importe = importe;
     }
 }
