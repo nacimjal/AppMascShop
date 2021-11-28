@@ -34,7 +34,7 @@ public class MainActivity extends AppCompatActivity {
     private ActivityMainBinding binding;
 
 
-    String rolUsuario,idUsuarioGeneral,direccionEntrega;
+    String rolUsuario,idUsuarioGeneral,direccionEntrega,nombreUserLogeado;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -58,6 +58,7 @@ public class MainActivity extends AppCompatActivity {
         rolUsuario = getIntent().getStringExtra("rolUsuario");
         idUsuarioGeneral = getIntent().getStringExtra("idUserLogin");
         direccionEntrega =  getIntent().getStringExtra("direccionEntrega");
+        nombreUserLogeado = getIntent().getStringExtra("userLogeado");
 
 
         //Guardamos IdUsuario logeado en SharedPreferences temporalmente
@@ -65,6 +66,7 @@ public class MainActivity extends AppCompatActivity {
         SharedPreferences.Editor editor = preferences.edit();
         editor.putString("idUsuarioGeneral",idUsuarioGeneral);
         editor.putString("direccionEntrega",direccionEntrega);
+        editor.putString("nombreUserLogeado",nombreUserLogeado);
         editor.commit();
 
         // Passing each menu ID as a set of Ids because each

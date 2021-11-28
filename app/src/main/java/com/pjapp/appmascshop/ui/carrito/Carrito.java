@@ -49,7 +49,7 @@ public class Carrito extends Fragment {
 
     Double subtotal,igvPed,totalPed;
 
-    String userIdLogin,numPedido;
+    String userIdLogin,numPedido,idPedidoGen,nombreUserLogeado;
 
     List<CarritoModel> listaCarritoModel = new ArrayList<>();
     CarritoAdapter adapterList;
@@ -63,6 +63,7 @@ public class Carrito extends Fragment {
         //Obtenemos idUsuarioGeneral guardado en SharedPreferences(MainActivity)
         SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(getContext());
         userIdLogin = preferences.getString("idUsuarioGeneral","unknown");
+        nombreUserLogeado = preferences.getString("nombreUserLogeado","unknown");
 
         return inflater.inflate(R.layout.fragment_carrito, container, false);
     }
@@ -79,7 +80,6 @@ public class Carrito extends Fragment {
         calcularSubtotales();
 
     }
-
 
     private void calcularSubtotales() {
 
@@ -137,6 +137,8 @@ public class Carrito extends Fragment {
                         Fragment newFragment = new ConfirmarPedido();
                         Bundle envData = new Bundle();
                         envData.putString("subtotalPedido",subtotal+"");
+                        envData.putString("idPedidoGen",idPedidoGen+"");
+
 
                         newFragment.setArguments(envData);
                         activity.getSupportFragmentManager()
@@ -173,6 +175,8 @@ public class Carrito extends Fragment {
         numPedido = "PED00"+numPedRand+""+curTime;
 
         String idPedido = UUID.randomUUID().toString();
+        idPedidoGen = idPedido;
+
 
         //GUARDAMOS PEDIDO
 
@@ -185,6 +189,7 @@ public class Carrito extends Fragment {
         p.setIgv(igvPed);
         p.setTotal(totalPed);
         p.setEvidenciaPago("");
+        p.setNombreCliente(nombreUserLogeado);
 
         databaseReference.child("Pedido").child(p.getIdPedido()).setValue(p);
 

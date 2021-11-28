@@ -3,6 +3,7 @@ package com.pjapp.appmascshop.ui.carrito;
 import android.Manifest;
 import android.app.Activity;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.database.Cursor;
@@ -13,6 +14,7 @@ import android.os.Bundle;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.appcompat.app.AlertDialog;
 import androidx.core.app.ActivityCompat;
 import androidx.fragment.app.Fragment;
 
@@ -33,6 +35,7 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
+import com.google.firebase.FirebaseApp;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.storage.FirebaseStorage;
@@ -40,7 +43,11 @@ import com.google.firebase.storage.OnProgressListener;
 import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.UploadTask;
 import com.pjapp.appmascshop.DAO.DAOCarrito;
+import com.pjapp.appmascshop.MainActivity;
 import com.pjapp.appmascshop.R;
+import com.pjapp.appmascshop.ui.gallery.GalleryFragment;
+import com.pjapp.appmascshop.ui.home.HomeFragment;
+import com.pjapp.appmascshop.ui.slideshow.SlideshowFragment;
 
 import org.jetbrains.annotations.NotNull;
 
@@ -48,6 +55,7 @@ import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.nio.charset.StandardCharsets;
 import java.text.DecimalFormat;
+import java.util.HashMap;
 import java.util.UUID;
 
 
@@ -57,14 +65,17 @@ public class ConfirmarPedido extends Fragment {
     ImageButton btnAbrirCamara;
     ImageView imgEvidenciaPed;
 
-    String subtotal;
+    String subtotal,idPedidoGen,urlImagenFirebase=null;
 
     private static final int REQUEST_PERMISSION_CAMERA = 100;
     private static final int REQUEST_IMAGE_CAMERA = 101;
     public String IMAGEN1;
 
-    FirebaseStorage storage;
-    StorageReference storageReference;
+    //FirebaseStorage storage;
+    //StorageReference storageReference;
+
+    FirebaseDatabase firebaseDatabase;
+    DatabaseReference databaseReference;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -74,6 +85,7 @@ public class ConfirmarPedido extends Fragment {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         asignarReferencias(view);
+        inicializarFirebase();
         obtenerDatosEnviados();
         calcularSubtotales();
 
@@ -111,6 +123,8 @@ public class ConfirmarPedido extends Fragment {
             return;
         }else{
             subtotal = datosRecuperados.getString("subtotalPedido");
+            idPedidoGen = datosRecuperados.getString("idPedidoGen");
+
         }
     }
 
@@ -143,9 +157,39 @@ public class ConfirmarPedido extends Fragment {
         btnConfirmarPedido.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Toast.makeText(getContext(), "Confirmar pedido: "+subtotal, Toast.LENGTH_SHORT).show();
+                if (urlImagenFirebase != null){
+                    confirmarPedido(view);
+                }else{
+                    Toast.makeText(getContext(), "No se pudo confirmar el pedido, debe subir evidencia", Toast.LENGTH_SHORT).show();
+                }
             }
         });
+    }
+
+    private void confirmarPedido(View view){
+        HashMap map = new HashMap();
+        map.put("evidenciaPago",urlImagenFirebase);
+        String idPedido = idPedidoGen;
+
+        databaseReference.child("Pedido").child(idPedido).updateChildren(map);
+        AlertDialog.Builder ventana = new AlertDialog.Builder(getContext());
+        ventana.setTitle("Mensaje informativo");
+        ventana.setMessage("Su pedido se confirmo correctamente");
+        ventana.setPositiveButton("Aceptar", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialogInterface, int i) {
+                MainActivity activity = (MainActivity) getContext();
+                Fragment newFragment = new GalleryFragment();
+                activity.getSupportFragmentManager()
+                        .beginTransaction()
+                        .replace(R.id.nav_host_fragment_content_main,newFragment)
+                        .addToBackStack(null)
+                        .commit();
+            }
+        });
+        ventana.create().show();
+
+
     }
 
     @Override
@@ -198,8 +242,9 @@ public class ConfirmarPedido extends Fragment {
             @Override
             public void onComplete(@NonNull Task<Uri> task) {
                 Uri urlImg = task.getResult();
+                urlImagenFirebase = urlImg.toString();
 
-                Toast.makeText(getContext(), "URL:" + urlImg, Toast.LENGTH_SHORT).show();
+                //Toast.makeText(getContext(), "URL:" + urlImg, Toast.LENGTH_SHORT).show();
 
                 System.out.println("URL => "+urlImg);
             }
@@ -216,6 +261,12 @@ public class ConfirmarPedido extends Fragment {
         } else {
             Toast.makeText(getContext(), "No se puede abrir la camara", Toast.LENGTH_LONG).show();
         }
+    }
+
+    private void inicializarFirebase() {
+        FirebaseApp.initializeApp(getContext());
+        firebaseDatabase = FirebaseDatabase.getInstance();
+        databaseReference = firebaseDatabase.getReference();
     }
 
 }

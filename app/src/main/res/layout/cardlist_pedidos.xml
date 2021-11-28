@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:orientation="vertical"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="wrap_content">
 
     <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
@@ -27,7 +27,7 @@
                 app:layout_constraintTop_toTopOf="parent"/>
 
             <TextView
-                android:id="@+id/lblNumPedido"
+                android:id="@+id/txtNum_Pedido"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="8dp"
@@ -38,7 +38,7 @@
                 app:layout_constraintTop_toTopOf="parent" />
 
             <TextView
-                android:id="@+id/lblFechaPedido"
+                android:id="@+id/txtFecha_pedido"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="04/06/2021"
@@ -48,33 +48,20 @@
                 app:layout_constraintTop_toTopOf="parent" />
 
             <TextView
-                android:id="@+id/lblDniCliente"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:id="@+id/txtCliente_pedido"
+                android:layout_width="352dp"
+                android:layout_height="22dp"
                 android:layout_marginStart="8dp"
                 android:layout_marginTop="10dp"
                 android:text="74539106"
-                android:textStyle="bold"
                 android:textColor="@color/black"
                 android:textSize="@dimen/_sizeText"
+                android:textStyle="bold"
                 app:layout_constraintStart_toEndOf="@+id/imageView2"
-                app:layout_constraintTop_toBottomOf="@+id/lblNumPedido" />
+                app:layout_constraintTop_toBottomOf="@+id/txtNum_Pedido" />
 
             <TextView
-                android:id="@+id/lblCliente"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="20dp"
-                android:layout_marginTop="10dp"
-                android:text="Efrain Mercado Chavez"
-                android:textColor="@color/black"
-                android:textSize="@dimen/_sizeText"
-                android:textStyle="bold"
-                app:layout_constraintStart_toEndOf="@+id/lblDniCliente"
-                app:layout_constraintTop_toBottomOf="@+id/lblNumPedido" />
-
-            <TextView
-                android:id="@+id/lblSubtotal"
+                android:id="@+id/txtSubtotal_pedido"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="8dp"
@@ -84,33 +71,31 @@
                 android:textStyle="bold"
                 android:textColor="@color/colPlomo"
                 app:layout_constraintStart_toEndOf="@+id/imageView2"
-                app:layout_constraintTop_toBottomOf="@+id/lblDniCliente" />
+                app:layout_constraintTop_toBottomOf="@+id/txtCliente_pedido" />
 
             <TextView
-                android:id="@+id/lblIgv"
+                android:id="@+id/txtIgv_pedido"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="10dp"
-                android:layout_marginTop="10dp"
                 android:text="Igv: S/ 72.87"
                 android:textColor="@color/colPlomo"
                 android:textSize="@dimen/_sizeText"
                 android:textStyle="bold"
-                app:layout_constraintEnd_toStartOf="@+id/lblTotal"
-                app:layout_constraintStart_toEndOf="@+id/lblSubtotal"
-                app:layout_constraintTop_toBottomOf="@+id/lblCliente" />
+                app:layout_constraintEnd_toStartOf="@+id/txtTotal_pedido"
+                app:layout_constraintStart_toEndOf="@+id/txtSubtotal_pedido"
+                app:layout_constraintTop_toTopOf="@+id/txtSubtotal_pedido" />
 
             <TextView
-                android:id="@+id/lblTotal"
+                android:id="@+id/txtTotal_pedido"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
                 android:text="Tot: S/ 72.87"
                 android:textColor="@color/colPlomo"
                 android:textSize="@dimen/_sizeText"
                 android:textStyle="bold"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/lblCliente"/>
+                app:layout_constraintTop_toTopOf="@+id/txtSubtotal_pedido" />
 
 
         </androidx.constraintlayout.widget.ConstraintLayout>

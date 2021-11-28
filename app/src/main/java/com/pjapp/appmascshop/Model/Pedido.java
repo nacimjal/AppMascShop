@@ -9,6 +9,7 @@ public class Pedido {
     private Double igv;
     private Double total;
     private String evidenciaPago;
+    private String nombreCliente;
 
     public String getIdPedido() {
         return idPedido;
@@ -72,5 +73,13 @@ public class Pedido {
 
     public void setEvidenciaPago(String evidenciaPago) {
         this.evidenciaPago = evidenciaPago;
+    }
+
+    public String getNombreCliente() {
+        return nombreCliente;
+    }
+
+    public void setNombreCliente(String nombreCliente) {
+        this.nombreCliente = nombreCliente;
     }
 }

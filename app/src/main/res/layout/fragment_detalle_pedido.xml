@@ -34,7 +34,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/txtNumPedidoEvidencias"
+        android:id="@+id/txtNumPedido_pd"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="5dp"
@@ -69,7 +69,7 @@
 
                 <!-- =========  Fila 1 ==========-->
                 <TextView
-                    android:id="@+id/lblNumPedido"
+                    android:id="@+id/txtNum_Pedido"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Cliente:"
@@ -80,7 +80,7 @@
                     app:layout_constraintTop_toTopOf="parent" />
 
                 <TextView
-                    android:id="@+id/lblFechaPedido"
+                    android:id="@+id/txtFecha_pedido"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Fecha Emisión:"
@@ -91,7 +91,7 @@
                     app:layout_constraintTop_toTopOf="parent" />
 
                 <TextView
-                    android:id="@+id/txtCliente"
+                    android:id="@+id/txtCliente_dp"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="3dp"
@@ -99,10 +99,10 @@
                     android:textColor="@color/black"
                     android:textSize="@dimen/_sizeTextDetPed"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/lblNumPedido" />
+                    app:layout_constraintTop_toBottomOf="@+id/txtNum_Pedido" />
 
                 <TextView
-                    android:id="@+id/txtFechaEntrega"
+                    android:id="@+id/txtFechaEntrega_dp"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginEnd="3dp"
@@ -110,54 +110,30 @@
                     android:textColor="@color/black"
                     android:textSize="@dimen/_sizeTextDetPed"
                     app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/lblFechaPedido" />
+                    app:layout_constraintTop_toBottomOf="@+id/txtFecha_pedido" />
 
                 <!-- =========  Fila 2 ==========-->
-                <TextView
-                    android:id="@+id/lblTelefono"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="3dp"
-                    android:text="Teléfono:"
-                    android:textColor="@color/colPlomo"
-                    android:textSize="@dimen/_sizeTextDetPed"
-                    android:textStyle="bold"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/txtCliente" />
-
-                <TextView
-                    android:id="@+id/txtTelefono"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="3dp"
-                    android:text="936182545"
-                    android:textColor="@color/black"
-                    android:textSize="@dimen/_sizeTextDetPed"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/lblTelefono" />
 
                 <TextView
                     android:id="@+id/lblEmail"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="25dp"
                     android:layout_marginTop="3dp"
                     android:text="Email:"
                     android:textColor="@color/colPlomo"
                     android:textSize="@dimen/_sizeTextDetPed"
                     android:textStyle="bold"
-                    app:layout_constraintStart_toEndOf="@+id/lblTelefono"
-                    app:layout_constraintTop_toBottomOf="@+id/txtCliente" />
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/txtCliente_dp" />
 
                 <TextView
-                    android:id="@+id/txtEmail"
+                    android:id="@+id/txtEmail_dp"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="25dp"
                     android:text="emercado@hotmail.com"
                     android:textColor="@color/black"
                     android:textSize="@dimen/_sizeTextDetPed"
-                    app:layout_constraintStart_toEndOf="@+id/lblTelefono"
+                    app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/lblEmail" />
 
 
@@ -172,10 +148,10 @@
                     android:textSize="@dimen/_sizeTextDetPed"
                     android:textStyle="bold"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/txtTelefono" />
+                    app:layout_constraintTop_toBottomOf="@+id/txtEmail_dp" />
 
                 <TextView
-                    android:id="@+id/txtDireccion"
+                    android:id="@+id/txtDireccion_dp"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="3dp"
@@ -211,7 +187,7 @@
             app:layout_constraintStart_toEndOf="parent" />
 
         <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/listaMotorizados"
+            android:id="@+id/recyclerProductos_dp"
             android:layout_width="match_parent"
             android:layout_height="180dp"
             android:layout_marginTop="5dp"
@@ -256,7 +232,7 @@
                     app:layout_constraintTop_toTopOf="parent" />
 
                 <TextView
-                    android:id="@+id/txtSubtotalPedConf"
+                    android:id="@+id/txtSubtotal_dp"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="S/ 404.84"
@@ -279,7 +255,7 @@
                     app:layout_constraintTop_toBottomOf="@+id/labelSubtotal" />
 
                 <TextView
-                    android:id="@+id/txtIgvPedConf"
+                    android:id="@+id/txtIgv_dp"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="5dp"
@@ -287,7 +263,7 @@
                     android:textColor="@color/black"
                     android:textSize="@dimen/_sizeTextDetPed"
                     app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/txtSubtotalPedConf" />
+                    app:layout_constraintTop_toBottomOf="@+id/txtSubtotal_dp" />
 
                 <!--Fila Total-->
                 <TextView
@@ -303,7 +279,7 @@
                     app:layout_constraintTop_toBottomOf="@+id/labelIgv" />
 
                 <TextView
-                    android:id="@+id/txtTotalPedConf"
+                    android:id="@+id/txtTotal_dp"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="5dp"
@@ -311,7 +287,7 @@
                     android:textColor="@color/black"
                     android:textSize="@dimen/_sizeTextDetPed"
                     app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/txtIgvPedConf" />
+                    app:layout_constraintTop_toBottomOf="@+id/txtIgv_dp" />
 
             </androidx.constraintlayout.widget.ConstraintLayout>
         </androidx.cardview.widget.CardView>
@@ -342,7 +318,7 @@
                 app:layout_constraintTop_toTopOf="parent" />
 
             <ImageView
-                android:id="@+id/imgEvidenciaPago"
+                android:id="@+id/imgEvidenciaPago_dp"
                 android:layout_width="80dp"
                 android:layout_height="80dp"
                 android:layout_marginTop="5dp"
@@ -355,7 +331,7 @@
     </LinearLayout>
 
     <Button
-        android:id="@+id/btnVerUbicacion"
+        android:id="@+id/btnVerUbicacion_dp"
         android:layout_width="250dp"
         android:layout_height="60dp"
         android:layout_marginTop="10dp"
