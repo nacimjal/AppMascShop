@@ -5,6 +5,7 @@ public class DetallePedido {
     private String idDetallePedido;
     private String idPedido;
     private String idProducto;
+    private String producto;
     private Double precio;
     private Integer cantidad;
 
@@ -30,6 +31,14 @@ public class DetallePedido {
 
     public void setIdProducto(String idProducto) {
         this.idProducto = idProducto;
+    }
+
+    public String getProducto() {
+        return producto;
+    }
+
+    public void setProducto(String producto) {
+        this.producto = producto;
     }
 
     public Double getPrecio() {

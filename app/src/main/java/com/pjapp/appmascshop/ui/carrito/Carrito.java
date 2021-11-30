@@ -198,6 +198,7 @@ public class Carrito extends Fragment {
             DetallePedido dp = new DetallePedido();
             dp.setIdDetallePedido(UUID.randomUUID().toString());
             dp.setIdPedido(idPedido);
+            dp.setProducto(listaCarritoModel.get(i).getProducto());
             dp.setIdProducto(listaCarritoModel.get(i).getIdProducto());
             dp.setPrecio(listaCarritoModel.get(i).getPrecio());
             dp.setCantidad(listaCarritoModel.get(i).getCantidad());

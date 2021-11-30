@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:orientation="vertical"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="wrap_content">
 
     <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
@@ -19,7 +19,7 @@
             android:paddingHorizontal="5dp">
 
             <TextView
-                android:id="@+id/lblProductoCarrito"
+                android:id="@+id/txtProductodp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:gravity="left"
@@ -42,10 +42,10 @@
                 android:textStyle="bold"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/lblProductoCarrito" />
+                app:layout_constraintTop_toBottomOf="@+id/txtProductodp" />
 
             <TextView
-                android:id="@+id/lblCantidadCarrito"
+                android:id="@+id/txtCantidaddp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="5dp"
@@ -56,7 +56,7 @@
                 android:textSize="12dp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toEndOf="@+id/textView5"
-                app:layout_constraintTop_toBottomOf="@+id/lblProductoCarrito" />
+                app:layout_constraintTop_toBottomOf="@+id/txtProductodp" />
 
             <TextView
                 android:id="@+id/textPrecio"
@@ -70,11 +70,11 @@
                 android:textSize="12dp"
                 android:textStyle="bold"
                 app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintStart_toEndOf="@+id/lblCantidadCarrito"
-                app:layout_constraintTop_toBottomOf="@+id/lblProductoCarrito" />
+                app:layout_constraintStart_toEndOf="@+id/txtCantidaddp"
+                app:layout_constraintTop_toBottomOf="@+id/txtProductodp" />
 
             <TextView
-                android:id="@+id/lblPrecioCarrito"
+                android:id="@+id/txtPreciodp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="5dp"
@@ -85,7 +85,7 @@
                 android:textSize="12dp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toEndOf="@+id/textPrecio"
-                app:layout_constraintTop_toBottomOf="@+id/lblProductoCarrito" />
+                app:layout_constraintTop_toBottomOf="@+id/txtProductodp" />
 
             <TextView
                 android:id="@+id/textimporte"
@@ -99,11 +99,11 @@
                 android:textSize="12dp"
                 android:textStyle="bold"
                 app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintStart_toEndOf="@+id/lblPrecioCarrito"
-                app:layout_constraintTop_toBottomOf="@+id/lblProductoCarrito" />
+                app:layout_constraintStart_toEndOf="@+id/txtPreciodp"
+                app:layout_constraintTop_toBottomOf="@+id/txtProductodp" />
 
             <TextView
-                android:id="@+id/lblImporteCarrito"
+                android:id="@+id/txtImportedp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="5dp"
@@ -114,7 +114,7 @@
                 android:textSize="12dp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toEndOf="@+id/textimporte"
-                app:layout_constraintTop_toBottomOf="@+id/lblProductoCarrito" />
+                app:layout_constraintTop_toBottomOf="@+id/txtProductodp" />
 
 
 

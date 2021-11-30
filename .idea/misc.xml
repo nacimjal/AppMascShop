@@ -12,6 +12,7 @@
         <entry key="..\:/01_PJ_NACIM/AppMascShop/app/src/main/res/drawable/icon_add.xml" value="0.3828125" />
         <entry key="..\:/01_PJ_NACIM/AppMascShop/app/src/main/res/drawable/icon_carrito.xml" value="0.3828125" />
         <entry key="..\:/01_PJ_NACIM/AppMascShop/app/src/main/res/drawable/icon_pedido.xml" value="0.3828125" />
+        <entry key="..\:/01_PJ_NACIM/AppMascShop/app/src/main/res/drawable/icon_ubicacion.xml" value="0.3828125" />
         <entry key="..\:/01_PJ_NACIM/AppMascShop/app/src/main/res/drawable/icon_user.xml" value="0.3828125" />
         <entry key="..\:/01_PJ_NACIM/AppMascShop/app/src/main/res/drawable/side_nav_bar.xml" value="0.26979166666666665" />
         <entry key="..\:/01_PJ_NACIM/AppMascShop/app/src/main/res/layout/activity_account.xml" value="0.33" />
@@ -30,7 +31,7 @@
         <entry key="..\:/01_PJ_NACIM/AppMascShop/app/src/main/res/layout/fragment_categoria_producto.xml" value="0.1" />
         <entry key="..\:/01_PJ_NACIM/AppMascShop/app/src/main/res/layout/fragment_confirmar_pedido.xml" value="0.5" />
         <entry key="..\:/01_PJ_NACIM/AppMascShop/app/src/main/res/layout/fragment_detalle_categoria_producto.xml" value="0.33" />
-        <entry key="..\:/01_PJ_NACIM/AppMascShop/app/src/main/res/layout/fragment_detalle_pedido.xml" value="0.36666666666666664" />
+        <entry key="..\:/01_PJ_NACIM/AppMascShop/app/src/main/res/layout/fragment_detalle_pedido.xml" value="0.25" />
         <entry key="..\:/01_PJ_NACIM/AppMascShop/app/src/main/res/layout/fragment_detalle_producto.xml" value="0.1" />
         <entry key="..\:/01_PJ_NACIM/AppMascShop/app/src/main/res/layout/fragment_detalle_producto_adm.xml" value="0.33" />
         <entry key="..\:/01_PJ_NACIM/AppMascShop/app/src/main/res/layout/fragment_gallery.xml" value="0.33" />
