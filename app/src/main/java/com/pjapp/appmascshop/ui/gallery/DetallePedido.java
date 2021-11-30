@@ -26,9 +26,11 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 import com.pjapp.appmascshop.Adapters.ProductoPedidoAdapter;
+import com.pjapp.appmascshop.MainActivity;
 import com.pjapp.appmascshop.Model.Productos;
 import com.pjapp.appmascshop.Model.Usuario;
 import com.pjapp.appmascshop.R;
+import com.pjapp.appmascshop.ui.admin.DetalleCategoriaProducto;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -150,6 +152,18 @@ public class DetallePedido extends Fragment {
             @Override
             public void onClick(View view) {
                 Toast.makeText(getContext(), "Ir a mapa", Toast.LENGTH_SHORT).show();
+                MainActivity activity = (MainActivity) view.getContext();
+                Fragment newFragment = new MapaClientePedido();
+                Bundle envData = new Bundle();
+                envData.putString("direccionCliente",txtDireccion_dp.getText().toString());
+
+
+                newFragment.setArguments(envData);
+                activity.getSupportFragmentManager()
+                        .beginTransaction()
+                        .replace(R.id.nav_host_fragment_content_main,newFragment)
+                        .addToBackStack(null)
+                        .commit();
             }
         });
 
