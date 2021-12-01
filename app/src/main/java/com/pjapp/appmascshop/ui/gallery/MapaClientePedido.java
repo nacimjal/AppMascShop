@@ -12,6 +12,7 @@ import androidx.annotation.Nullable;
 import androidx.core.app.ActivityCompat;
 import androidx.fragment.app.Fragment;
 
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -101,12 +102,16 @@ public class MapaClientePedido extends Fragment {
 
                         Address address = listaDirecciones.get(0);
                         LatLng posicion = new LatLng(address.getLatitude(),address.getLongitude());
+
+                        Log.i("posicion","Lati y Long: "+posicion);
+
                         mMap.addMarker(new MarkerOptions().position(posicion).title(direccion));
                         mMap.animateCamera(CameraUpdateFactory.newLatLngZoom(posicion,15));
                     }
 
                 }catch (Exception e){
-                    Toast.makeText(getContext(),e.getMessage(),Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getContext(),"No encontramos la dirección ingresada",Toast.LENGTH_SHORT).show();
+                    Log.i("Error","Error mapa: "+e.getMessage());
                 }
                 return false;
             }
@@ -136,6 +141,9 @@ public class MapaClientePedido extends Fragment {
                     latitudActual = address.getLatitude();
                     longitudActual = address.getLongitude();
 
+                    Log.i("Mapa","Lati: "+latitudActual);
+                    Log.i("Mapa","Long: "+longitudActual);
+
                     //Sincronizar con el mapa
                     supportMapFragment.getMapAsync(new OnMapReadyCallback() {
                         @Override
@@ -157,7 +165,8 @@ public class MapaClientePedido extends Fragment {
                 }
 
             }catch (Exception e){
-                Toast.makeText(getContext(),e.getMessage(),Toast.LENGTH_SHORT).show();
+                Toast.makeText(getContext(),"No encontramos la dirección ingresada",Toast.LENGTH_SHORT).show();
+                Log.i("Error","Error mapa: "+e.getMessage());
             }
         }
     }

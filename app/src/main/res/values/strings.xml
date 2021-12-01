@@ -8,7 +8,7 @@
     <string name="action_logouth">Cerrar Sesión</string>
 
     <!--Sólo muestra para el cliente-->
-    <string name="menu_home">Principal</string>
+    <string name="menu_home">Comprar</string>
     <!--Muestra para el cliente(sólo sus pedidos) y ADM(todos los pedidos)-->
     <string name="menu_gallery">Pedidos</string>
     <!--Sólo muestra para el cliente-->

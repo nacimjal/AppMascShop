@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
+import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.Menu;
@@ -32,6 +33,8 @@ public class MainActivity extends AppCompatActivity {
 
     private AppBarConfiguration mAppBarConfiguration;
     private ActivityMainBinding binding;
+
+    NavigationView navigationView;
 
 
     String rolUsuario,idUsuarioGeneral,direccionEntrega,nombreUserLogeado;
@@ -67,6 +70,7 @@ public class MainActivity extends AppCompatActivity {
         editor.putString("idUsuarioGeneral",idUsuarioGeneral);
         editor.putString("direccionEntrega",direccionEntrega);
         editor.putString("nombreUserLogeado",nombreUserLogeado);
+        editor.putString("rolUsuario",rolUsuario);
         editor.commit();
 
         // Passing each menu ID as a set of Ids because each
@@ -75,20 +79,42 @@ public class MainActivity extends AppCompatActivity {
                 R.id.nav_home, R.id.nav_gallery, R.id.nav_slideshow,R.id.nav_categoria,R.id.nav_producto)
                 .setOpenableLayout(drawer)
                 .build();
+
         NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment_content_main);
         NavigationUI.setupActionBarWithNavController(this, navController, mAppBarConfiguration);
         NavigationUI.setupWithNavController(navigationView, navController);
+
+        permisosMenu();
+
+    }
+
+    private void permisosMenu() {
+        navigationView = (NavigationView) findViewById(R.id.nav_view);
+        Menu nav_Menu = navigationView.getMenu();
+
+        Toast.makeText(this, "Rol: "+rolUsuario, Toast.LENGTH_SHORT).show();
+
+        if(rolUsuario.equals("Adm")){
+            nav_Menu.findItem(R.id.nav_home).setVisible(false);
+            nav_Menu.findItem(R.id.nav_slideshow).setVisible(false);
+        }else{
+            nav_Menu.findItem(R.id.nav_categoria).setVisible(false);
+            nav_Menu.findItem(R.id.nav_producto).setVisible(false);
+        }
 
     }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-
-        // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.main, menu);
         return true;
     }
 
+    @Override
+    public boolean onPrepareOptionsMenu(Menu menu) {
+        menu.removeItem(R.id.nav_gallery);
+        return super.onPrepareOptionsMenu(menu);
+    }
 
     @Override
     public boolean onSupportNavigateUp() {
@@ -97,17 +123,23 @@ public class MainActivity extends AppCompatActivity {
                 || super.onSupportNavigateUp();
     }
 
+
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
         switch (item.getItemId()){
             case R.id.action_carrito:
-                FragmentManager fm = getSupportFragmentManager();
-                FragmentTransaction ft = fm.beginTransaction();
-                ft.add(R.id.nav_host_fragment_content_main,new Carrito());
-                ft.commit();
+                if(rolUsuario.equals("Adm")){
+                    Toast.makeText(this, "No tiene acceso a esta opción", Toast.LENGTH_SHORT).show();
+                }else{
+                    FragmentManager fm = getSupportFragmentManager();
+                    FragmentTransaction ft = fm.beginTransaction();
+                    ft.add(R.id.nav_host_fragment_content_main,new Carrito());
+                    ft.commit();
+                }
                 break;
             case R.id.action_settings:
-                Toast.makeText(this, "Boton cerrar sesion", Toast.LENGTH_SHORT).show();
+                Intent intent = new Intent(MainActivity.this, LoginActivity.class);
+                startActivity(intent);
                 break;
         }
         return super.onOptionsItemSelected(item);

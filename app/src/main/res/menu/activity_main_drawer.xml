@@ -3,30 +3,25 @@
     xmlns:tools="http://schemas.android.com/tools"
     tools:showIn="navigation_view">
 
-    <group android:checkableBehavior="single">
-        <item
-            android:id="@+id/nav_home"
-            android:icon="@drawable/icon_home"
-            android:title="@string/menu_home" />
-        <item
-            android:id="@+id/nav_gallery"
-            android:icon="@drawable/icon_pedidos"
-            android:title="@string/menu_gallery" />
-        <item
-            android:id="@+id/nav_slideshow"
-            android:icon="@drawable/icon_ubicacion"
-            android:title="@string/menu_slideshow" />
+    <item
+        android:id="@+id/nav_home"
+        android:icon="@drawable/icon_home"
+        android:title="@string/menu_home" />
+    <item
+        android:id="@+id/nav_gallery"
+        android:icon="@drawable/icon_pedidos"
+        android:title="@string/menu_gallery" />
+    <item
+        android:id="@+id/nav_slideshow"
+        android:icon="@drawable/icon_ubicacion"
+        android:title="@string/menu_slideshow" />
 
-    </group>
-
-    <group android:id="@+id/menu_adm">
-        <item
-            android:id="@+id/nav_categoria"
-            android:icon="@drawable/icon_categoria"
-            android:title="@string/menu_categoria" />
-        <item
-            android:id="@+id/nav_producto"
-            android:icon="@drawable/icon_productos"
-            android:title="@string/menu_producto" />
-    </group>
+    <item
+        android:id="@+id/nav_categoria"
+        android:icon="@drawable/icon_categoria"
+        android:title="@string/menu_categoria" />
+    <item
+        android:id="@+id/nav_producto"
+        android:icon="@drawable/icon_productos"
+        android:title="@string/menu_producto" />
 </menu>
