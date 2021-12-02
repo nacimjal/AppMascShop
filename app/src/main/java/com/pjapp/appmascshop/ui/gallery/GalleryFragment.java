@@ -71,7 +71,7 @@ public class GalleryFragment extends Fragment {
     }
 
     private void listarDatosUser() {
-        Toast.makeText(getContext(), "UserId: "+ idUsuario, Toast.LENGTH_SHORT).show();
+        //Toast.makeText(getContext(), "UserId: "+ idUsuario, Toast.LENGTH_SHORT).show();
         databaseReference.child("Pedido").orderByChild("cliente").equalTo(idUsuario).addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {

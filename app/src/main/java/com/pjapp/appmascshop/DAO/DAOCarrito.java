@@ -108,7 +108,7 @@ public class DAOCarrito {
     }
 
 
-    //Metodo listar vehiculos
+    //Metodo listar Productos
     public List<CarritoModel> getCarrito(){
         List<CarritoModel> listaProductosCarritoModel = new ArrayList<>();
         try {
@@ -127,7 +127,7 @@ public class DAOCarrito {
         return listaProductosCarritoModel;
     }
 
-    //Metodo listar vehiculos
+    //Metodo listar Productos
     public Boolean verificarProducto(String id){
         boolean resultado = false;
 

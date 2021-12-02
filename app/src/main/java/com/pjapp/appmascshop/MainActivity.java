@@ -92,7 +92,7 @@ public class MainActivity extends AppCompatActivity {
         navigationView = (NavigationView) findViewById(R.id.nav_view);
         Menu nav_Menu = navigationView.getMenu();
 
-        Toast.makeText(this, "Rol: "+rolUsuario, Toast.LENGTH_SHORT).show();
+        //Toast.makeText(this, "Rol: "+rolUsuario, Toast.LENGTH_SHORT).show();
 
         if(rolUsuario.equals("Adm")){
             nav_Menu.findItem(R.id.nav_home).setVisible(false);

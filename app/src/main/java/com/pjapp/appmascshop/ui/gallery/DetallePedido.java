@@ -151,7 +151,7 @@ public class DetallePedido extends Fragment {
         btnVerUbicacion_dp.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Toast.makeText(getContext(), "Ir a mapa", Toast.LENGTH_SHORT).show();
+                //Toast.makeText(getContext(), "Ir a mapa", Toast.LENGTH_SHORT).show();
                 MainActivity activity = (MainActivity) view.getContext();
                 Fragment newFragment = new MapaClientePedido();
                 Bundle envData = new Bundle();
